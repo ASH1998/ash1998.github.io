@@ -5,9 +5,9 @@ title: Ashutosh
 description: Ashutosh's blog,use Jekyll and github pages.
 keywords: Ashutosh,Ashutosh Mishra,blog,Jekyll,github,gh-pages
 baseurl:  / # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
-url: https://ashut98.github.io  # url should be 'http://<github_username>.github.io/homepage' as before
+url: https://ASH1998.github.io  # url should be 'http://<github_username>.github.io/homepage' as before
 # url: http://127.0.0.1:4000
-img_path: /ashut98.github.io/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
+img_path: /ash1998.github.io/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
 
 # author -- index page "about me" section
 author:  # change following line to your infomation.
@@ -15,12 +15,12 @@ author:  # change following line to your infomation.
   first_name: Ashutosh  # Be used at index page about me section.
   last_name: Mishra  # Be used at index page about me section.
   avatar: /static/assets/img/landing/avatar2.jpg  # upload your avatar at directory and edit it.
-  github_username: ASHut98  # Leave blank if you don't have now
+  github_username: ASH1998  # Leave blank if you don't have now
   linkedin_id: ashutosh-mishra-a1ba01142 # Leave blank if you don't have now
   facebook_username: ashutosh.mishra.39982631  # Leave blank if you don't have now
   twitter_username: ashu2_2 # Leave blank if you don't have now
   email: prog.mishra@gmail.com  # Leave blank if you don't have now
-  cv:   https://ash1998.github.io/ # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:   https://drive.google.com/open?id=1u0ocyb5Ix1BUV4GkOuCh-jOkRL1Dww7C/ # An online CV can be printed as PDF, leave blank if you don't have now
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
   skill_icon1:
     - name: icon-python
@@ -37,7 +37,7 @@ disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your c
 # analytics
 ## google analytics
 ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
-  #id: UA-93473370-3
+  id: UA-127718000-1
 
 ## google optimize
 go:
