@@ -4,10 +4,10 @@
     detail: Kalika Gourmet LLC
     i18n: company_a
   desc:
-    detail: Developing backend for deploying a server for day-stock prediction and trading.
+    detail: Developing backend for deploying a server for day-stock prediction and trading. Predicting long term dependencies for NIFTY.
     i18n: company_a_desc
   date:
-    detail: Apr. 2018
+    detail: Jul. 2018
     i18n: company_a_date
   job:
     detail: Software Engineering Intern
