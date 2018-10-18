@@ -1,0 +1,6 @@
+# skills section data
+
+label: Ability
+id : cs
+aspects: Machine Learing, Deep Learning, Python, Image Processing,Natural Language Processing, Data Visualization, Cloud Computing,	SQL,C++
+percentage: 90, 75, 90, 75, 75, 80, 60, 60, 60

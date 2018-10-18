@@ -1,0 +1,74 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name:
+    detail: Kalika Gourmet LLC
+    i18n: company_a
+  desc:
+    detail: Developing backend for deploying a server for day-stock prediction and trading.
+    i18n: company_a_desc
+  date:
+    detail: Apr. 2018
+    i18n: company_a_date
+  job:
+    detail: Software Engineering Intern
+    i18n: company_a_job
+  icon: fa-plus-square
+
+- name:
+    detail: Tino IQ
+    i18n: company_a
+  desc:
+    detail: Financial data modeling.Statistical analysis on long term prediction for hedge-funds like S&P 500 with 92% accuracy.Testing and developing models for stock price prediction.
+    i18n: company_a_desc
+  date:
+    detail: Apr. 2018
+    i18n: company_a_date
+  job:
+    detail: Machine Learning Intern
+    i18n: company_a_job
+  icon: fa-plus-square
+
+- name:
+    detail: IntelIndexer LLC
+    i18n: company_b
+  desc:
+    detail: Process economic and finance domain algorithms and methods for feature extraction.Use LSTM,Dynamic Time Wraping, Clustering and scalable methods to build prediction system.Create a GDP prediction system with 5% more accurate than IMF. 
+    i18n: company_b_desc
+  date:
+    detail: Jan. 2018
+    i18n: company_b_date
+  job:
+    detail: Data Science Intern
+    i18n: company_b_job
+  icon: fa-plus-square
+
+- name:
+    detail: B. Tech
+    i18n: company_c
+  desc:
+    detail: Studied Computer Science Engineering and Applications.
+    i18n: company_c_desc
+  date:
+    detail: Apr. 2019
+    i18n: company_c_date
+  job:
+    detail: UnderGraduate Student
+    i18n: company_c_job
+  icon: fa-plus-square
+
+
+- name:
+    detail: Higher Secondary
+    i18n: company_c
+  desc:
+    detail: Studied Computer Science(12th Class) in DAV Public School, PKT and graduated in the year 2015.
+    i18n: company_c_desc
+  date:
+    detail: Apr. 2015
+    i18n: company_c_date
+  job:
+    detail: Student
+    i18n: company_c_job
+  icon: fa-plus-square
+
+
