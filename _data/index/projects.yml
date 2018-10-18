@@ -11,7 +11,8 @@
 
 - name: Unique Doodle Generation
   i18n: google
-  url: https://github.com/ASH1998/Doodle-gan
+  gh_user: ASH1998
+  repo: Doodle-gan
   img: /static/assets/img/landing/doodle.png
   desc: Generating new doodle images for different images using Generative Adversarial Networks. Tech - Python , Deep Learning, GANs.
 
