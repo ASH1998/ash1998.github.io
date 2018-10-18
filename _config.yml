@@ -20,7 +20,7 @@ author:  # change following line to your infomation.
   facebook_username: ashutosh.mishra.39982631  # Leave blank if you don't have now
   twitter_username: ashu2_2 # Leave blank if you don't have now
   email: prog.mishra@gmail.com  # Leave blank if you don't have now
-  cv:   https://drive.google.com/open?id=1u0ocyb5Ix1BUV4GkOuCh-jOkRL1Dww7C/ # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:   https://drive.google.com/open?id=1u0ocyb5Ix1BUV4GkOuCh-jOkRL1Dww7C # An online CV can be printed as PDF, leave blank if you don't have now
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
   skill_icon1:
     - name: icon-python
@@ -28,7 +28,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-git
-  desc: I am Ashutosh Mishra. I am from Bhubaneswar, Odisha. I am interested in machine learning and Artificial Intelligence. I am a curious bug. I love how the ML is changing the world. I would love to be in the front of the war for AI.  # Describe yourself.
+  desc: I am Ashutosh Mishra. I am from Bhubaneswar, Odisha. I am interested in machine learning and Artificial Intelligence. I am a curious bug. I love how the ML is changing the world. I aim at contributing as much as I can to these fields. My research interest are Generative Adversarial Networks, Attention models, Sequence to Sequence models. My current research project is on Deep representation of visual descriptions. Apart fro my interests in AI I have a keen interest in Japanese Culture and Space.  # Describe yourself.
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
