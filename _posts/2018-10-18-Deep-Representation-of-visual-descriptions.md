@@ -53,8 +53,9 @@ icon: icon-html
 ![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/models/bird_AttnGAN2/next/0_s_3_a1.png)
 
 ##### `Text : this bird is yellow with black on its head and has a very short beak`  
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/models/bird_AttnGAN2/next/0_s_0_g2.png)
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/models/bird_AttnGAN2/next/0_s_0_a1.png)
+<img src="https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/blob/master/output/coco_DAMSM_2018_10_10_04_42_55/Image/attention_maps200.png">
+
+<img src="https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/blob/master/models/bird_AttnGAN2/next/0_s_0_a1.png">
 
 
 ##### Caption Generation with Attention:    
