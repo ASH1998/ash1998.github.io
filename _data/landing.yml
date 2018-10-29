@@ -26,13 +26,13 @@
 
 - id: blog
   i18n: nav.blog
-  name: My Blog
+  name: Blog
   tpl: blog.html
   page: blog/
   css: testimonials navy-section
 
 - id: links
   i18n: nav.link
-  name: Contact
+  name: Contact Me
   tpl: links.html
   css: contact
