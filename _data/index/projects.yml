@@ -7,7 +7,7 @@
   gh_user: ASH1998
   repo: Deep-Representation-of-Visual-Descriptions
   img: /static/assets/img/landing/deep.jpg
-  desc: TGenerating images from text descriptions using Attention-GAN and Stack-GAN. Tech -Python , Deep Learning, AttnGAN, StackGAN, Image Processing.
+  desc: Generating images(real or abstarct) from text descriptions using Attention-GAN and Stack-GAN. Tech -Python , Deep Learning, AttnGAN, StackGAN, Image Processing.
 
 - name: Unique Doodle Generation
   i18n: google
