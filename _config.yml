@@ -2,7 +2,7 @@
 
 # Website settings
 title: Ashutosh
-description: Ashutosh's resume as well as blogs on AI.
+description: Ashutosh Mishra's personal site, blog and resume/portfolio.
 keywords: Ashutosh,Ashutosh Mishra,blog,Jekyll,github,gh-pages
 baseurl:  / # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
 url: https://ASH1998.github.io  # url should be 'http://<github_username>.github.io/homepage' as before
