@@ -57,4 +57,4 @@
   gh_user: ASH1998
   repo: Python-Web-Crawler
   img: /static/assets/img/landing/python.png
-  desc: This app crawls all the links it finds from a website and stores it in the same directory under a manually specified project name. Tech Stack : Python, scrapping, threading.
+  desc: This app crawls all the links it finds from a website and stores it in the same directory under a manually specified project name. Tech Stack - Python, scrapping, threading.
