@@ -45,9 +45,16 @@
   img: /static/assets/img/landing/bot.jpg
   desc: The AI “THE-BOT” is a community driven smart bot which is build using flask and Restful API responsive, which gives you a Weather, Distance and Your_IP.
 
-- name: BPUT-APP
+- name: BPUT APP
   i18n: jalpc
   gh_user: ASH1998
   repo: BPUT-APP
   img: /static/assets/img/landing/python.png
   desc: This project is about getting mass results from BPUT using Selenium and BS4.
+
+- name: Web Crawler
+  i18n: jalpc
+  gh_user: ASH1998
+  repo: Python-Web-Crawler
+  img: /static/assets/img/landing/python.png
+  desc: This app crawls all the links it finds from a website and stores it in the same directory under a manually specified project name. Tech Stack : Python, scrapping, threading.
