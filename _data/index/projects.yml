@@ -7,7 +7,14 @@
   gh_user: ASH1998
   repo: Deep-Representation-of-Visual-Descriptions
   img: /static/assets/img/landing/deep.jpg
-  desc: Generating images(real or abstarct) from text descriptions using Attention-GAN and Stack-GAN. Tech -Python , Deep Learning, AttnGAN, StackGAN, Image Processing.
+  desc: Generating images(real or abstarct) from text descriptions using Attention-GAN and Stack-GAN. This project focuses on text description-to-image conversion through self attention which results in better accuracy. Tech -Python , Deep Learning, AttnGAN, StackGAN, Image Processing.
+
+- name: LimbicAI
+  i18n: cpython
+  gh_user: ASH1998
+  repo: LymbAI
+  img: /static/assets/img/landing/Limbic.PNG
+  desc: LimbicAI is an AI that induces emotions like fear in AI. This project aims to provide safe AI using self-attention and adversarial learning to remove fake detection, mis-classification and other problems which arises due to noise or tampering with the models from outside.
 
 - name: Unique Doodle Generation
   i18n: google
