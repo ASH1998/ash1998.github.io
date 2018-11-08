@@ -28,7 +28,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-git
-  desc: I am Ashutosh Mishra. I am from Bhubaneswar, Odisha. I am interested in machine learning and Artificial Intelligence. I love how the ML is changing the world. I aim at contributing as much as I can to these fields. My research interests include Generative Adversarial Networks, Attention models, Sequence to Sequence models and Advesarial learning. My current research project is on Deep representation of visual descriptions. Apart from my interests in AI I have a keen interest in Japanese Culture and Space.  # Describe yourself.
+  desc: I am Ashutosh Mishra. I am from Bhubaneswar, Odisha. I am interested in machine learning and Artificial Intelligence. I love how the ML is changing the world. I aim at contributing as much as I can to these fields. My research interests include Generative Adversarial Networks, Attention models, Sequence to Sequence models and Advesarial learning. My current research projects are on Deep representation of visual descriptions and LimbicAI which is an AI that induces emotion like fear into an AI. Apart from my interests in AI I have a keen interest in Japanese Culture and Space.  # Describe yourself.
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
