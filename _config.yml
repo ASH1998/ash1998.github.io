@@ -16,11 +16,11 @@ author:  # change following line to your infomation.
   last_name: Mishra  # Be used at index page about me section.
   avatar: /static/assets/img/landing/avatar2.jpg  # upload your avatar at directory and edit it.
   github_username: ASH1998  # Leave blank if you don't have now
-  linkedin_id: ashutosh-mishra-a1ba01142 # Leave blank if you don't have now
+  linkedin_id: ash1998 # Leave blank if you don't have now
   facebook_username: ashutosh.mishra.39982631  # Leave blank if you don't have now
   twitter_username: ashu2_2 # Leave blank if you don't have now
   email: prog.mishra@gmail.com  # Leave blank if you don't have now
-  cv:   https://drive.google.com/open?id=1u0ocyb5Ix1BUV4GkOuCh-jOkRL1Dww7C # An online CV can be printed as PDF, leave blank if you don't have now
+  cv:   https://drive.google.com/open?id=1Ig-gCVJKZtA0gjFSWhKoZ6xuKeMi6S3- # An online CV can be printed as PDF, leave blank if you don't have now
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
   skill_icon1:
     - name: icon-python
