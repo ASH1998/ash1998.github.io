@@ -7,7 +7,7 @@
   gh_user: ASH1998
   repo: Deep-Representation-of-Visual-Descriptions
   img: /static/assets/img/landing/deep.jpg
-  desc: Generating images(real or abstarct) from text descriptions using Attention-GAN and Stack-GAN. This project focuses on text description-to-image conversion through self attention which results in better accuracy.
+  desc: Generating images(real or abstract) from text descriptions using Attention-GAN and Stack-GAN. This project focuses on text description-to-image conversion through self attention which results in better accuracy.
 
 - name: LimbicAI
   i18n: cpython
