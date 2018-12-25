@@ -13,7 +13,7 @@ icon: icon-html
 
 
 
-Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such cases, models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainity** is important.
+Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such cases, models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainty** is important.
 
 
 
