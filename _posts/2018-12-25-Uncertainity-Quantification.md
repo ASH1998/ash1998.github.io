@@ -9,6 +9,122 @@ tags: [Geo-loc, Python, Deep-Learning]
 icon: icon-html
 ---
 
+![](http://mlg.eng.cam.ac.uk/yarin/blog_images/reg_demo_small.jpg)
+
+Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainity** is important.
+
+## Uncertainty in Deep Learning
+
+Understanding what a model does not know is a critical part of many machine learning systems. Unfortunately, today’s deep learning algorithms are usually unable to understand their uncertainty. These models are often taken blindly and assumed to be accurate, which is not always the case.
+
+For example : An image classification system erroneously identified two African American humans as gorillas, raising concerns of racial discrimination. [Read the report here.](https://www.usatoday.com/story/tech/2015/07/01/google-apologizes-after-photos-identify-black-people-as-gorillas/29567465/)
+
+## Who comes to the rescue
+
+**_BDL(Bayesian Deep Learning)_**
+
+Most materials in this post have been taken from two papers below by Alex Kendal and Yarin Gal.
+- What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? Alex Kendall and Yarin Gal, 2017. [(.pdf)](https://arxiv.org/pdf/1703.04977.pdf) 
+- Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics. Alex Kendall, Yarin Gal and Roberto Cipolla, 2017. [(.pdf)](https://arxiv.org/pdf/1705.07115.pdf)
+
+### Types of Uncertainty : 
+
+1. Mathematical model and experimental measurement
+    - Parameter
+    - Structural
+    - Algorithmic
+    - Experminetal
+    - Interpolation
+
+
+2. Model Generated
+    - Epistemic
+    - Aleatoric
+
+We will discuss the later part of uncertainty i.e model generated in this blog.
+
+#### Epistemoc Uncertainty
+
+**_Epistemic Uncertainty_** causes when model ignores certain effects or because a particular part of data is hidden. This happens mostly due to low variance in training samples. 
+Useful in:
+- Safety critical applications
+- Small datasets.
+
+#### Aleatoric Uncertainty
+
+**_Aleatoric Uncertainty_** Aleatoric uncertainty captures our uncertainty with respect to information which our data cannot explain. For example, aleatoric uncertainty in images can be attributed to occlusions (because cameras can’t see through objects).
+Useful in : 
+- Large data situations
+- Real-time applications, because we can form aleatoric models as a deterministic function of the input data, without expensive Monte Carlo sampling.
+---------------------------------------------------------------------------
+
+![](https://alexgkendall.com/assets/images/blog_uncertainty/uncertainty_types.jpg)
+
+Illustrating the difference between aleatoric and epistemic uncertainty for semantic segmentation. You can notice that aleatoric uncertainty captures object boundaries where labels are noisy. The bottom row shows a failure case of the segmentation model, when the model is unfamiliar with the footpath, and the corresponding increased epistemic uncertainty.
+
+--------------------------------------------------------------------------
+
+Bayesian deep learning is a field at the intersection between deep learning and Bayesian probability theory. Bayesian deep learning models typically form uncertainty estimates by either placing distributions over model weights, or by learning a direct mapping to probabilistic outputs. 
+
+**Heteroscedastic uncertainty model**
+In this model we replace the Euclidean Loss (`Loss=||y−y^||2`) with
+
+                                Loss=||y−y^||22σ2+12logσ2
+
+The model predicts a mean y^ and variance σ2. As you can see from this equation, if the model predicts something very wrong, then it will be encouraged to attenuate the residual term, by increasing uncertainty σ2. However, the logσ2 prevents the uncertainty term growing infinitely large. This can be thought of as learned loss attenuation.
+
+Epistemic uncertainty is much harder to model. This requires us to model distributions over models and their parameters which is much harder to achieve at scale. A popular technique to model this is Monte Carlo dropout sampling which places a Bernoulli distribution over the network’s weights.
+
+--------------------------------------------------------------------------
+
+Next an example to deal with model uncertainty on an ensemble model for SPY 500 prediction using keras backend.
+
+`
+
+def model_uncertainity2(model, x_test, y_test, B, confidence):
+    
+    
+    MC_output = K.function([model.layers[0].input, K.learning_phase()], [model.layers[-1].output])
+    learning_phase = True  # use dropout at test time
+    
+    MC_samples = [MC_output([x_test, learning_phase])[0] for _ in range(B)]
+    MC_samples = np.array(MC_samples)
+
+    eta1 = np.mean(MC_samples - (np.mean(MC_samples)**2))#model misspecification and model uncertainity 
+    eta2 = mean_squared_error(model.predict(x_test), y_test) #inherent noise
+    model_uncer = np.sqrt(eta1**2 + eta2**2)
+    
+    Merror = (st.norm.ppf((1+(confidence/100))/2))*model_uncer
+    
+    return Merror
+`
+
+Parameters      
+'''     
+    :param model: model class object; lstm or gru       
+    :x_test: array, test X sample       
+    :y_test: array, test y sample       
+    :B: int, beta factor for number of iterations for Monte Carlo       
+    :confidence: percent;int , percent factor of uncertainity       
+'''
+
+- Getting uncertainity in any model.
+
+- Theory:
+
+  p(yi|xi,Xtrain,Ytrain)=∫p(yi|xi,ω)     
+  p(ω|Xtrain,Ytrain)        
+  dω≈∫p(yi|xi,ω)qθ(ω)dω       
+  =:qθ(yi|xi)     
+
+- we have that yi is a draw from an approximation to the predictive distribution.
+
+- This process is equivalent to drawing a new function for each test point, which results in extremely erratic depictions that have peaks at different locations
+
+- Drawing a new function for each test point makes no difference if all we care about is obtaining the predictive mean and predictive variance, but this process does not result in draws from the induced distribution over functions
+
+The result is shown below.
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,3 +173,19 @@ icon: icon-html
         
     </body>
 </html>
+
+
+Here we get a unceratinty rate of 75% as input and the output follows.
+
+## Summary
+
+To get uncertainty intervals you either:
+1. add a prior to the model, approximate the posterior via variational inference, and then sample from the posterior.
+2. run existing model a bunch of times with dropout layers turned on.
+
+References:
+1. [Concrete Dropout](https://arxiv.org/abs/1705.07832)
+2. What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? Alex Kendall and Yarin Gal, 2017. [(.pdf)](https://arxiv.org/pdf/1703.04977.pdf) 
+3. Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics. Alex Kendall, Yarin Gal and Roberto Cipolla, 2017. [(.pdf)](https://arxiv.org/pdf/1705.07115.pdf)
+4. [Github : Code for the uncertainty paper](https://github.com/pmorerio/dl-uncertainty)
+5. [Yarin Gal Blog](http://mlg.eng.cam.ac.uk/yarin/blog_2248.html)
