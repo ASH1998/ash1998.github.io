@@ -39,8 +39,8 @@ icon: icon-html
 ## Current Outputs
 
 ##### `Text : flat screen television on top of an old tv console`  
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptionsmodels/coco_AttnGAN2/example_captions/0_s_11_g2.png)
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptionsmodels/coco_AttnGAN2/example_captions/0_s_11_a1.png)
+![](https://i.imgur.com/6Z5FTeq.png)
+![](https://i.imgur.com/RBRnYQy.png)
 
 
 ##### `Text : a large red and white boat floating on top of a lake`  
@@ -49,16 +49,16 @@ icon: icon-html
 
 
 ##### `TEXT :this bird is red and white in color with a stubby beak and red eye rings`  
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/models/bird_AttnGAN2/next/0_s_3_g2.png)
-![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/models/bird_AttnGAN2/next/0_s_3_a1.png)
+![](https://i.imgur.com/cxWaEID.png)
+![](https://i.imgur.com/jPDXxc2.png)
 
 ##### `Text : this bird is yellow with black on its head and has a very short beak`  
-<img src="https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/blob/master/output/coco_DAMSM_2018_10_10_04_42_55/Image/attention_maps200.png">
+<img src="https://i.imgur.com/bivvojr.png">
 
 <img src="https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/blob/master/models/bird_AttnGAN2/next/0_s_0_a1.png">
 
 
-##### Caption Generation with Attention:    
+##### Caption Generation with Attention   
 ![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/output/coco_DAMSM_2018_10_10_04_42_55/Image/attention_maps0.png)
 
 
