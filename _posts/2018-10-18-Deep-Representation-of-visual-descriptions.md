@@ -40,8 +40,9 @@ icon: icon-html
 
 ##### `Text : flat screen television on top of an old tv console`  
 ![](https://i.imgur.com/6Z5FTeq.png)
-![](https://i.imgur.com/RBRnYQy.png)
 
+
+<img src="https://i.imgur.com/RBRnYQy.png" width=720>
 
 ##### `Text : a large red and white boat floating on top of a lake`  
 ![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptionsmodels/coco_AttnGAN2/example_captions/0_s_3_g2.png)
@@ -53,7 +54,7 @@ icon: icon-html
 ![](https://i.imgur.com/jPDXxc2.png)
 
 ##### `Text : this bird is yellow with black on its head and has a very short beak`  
-<img src="https://i.imgur.com/bivvojr.png">
+<img src="https://i.imgur.com/bivvojr.png" width=300 height=200>
 
 <img src="https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptions/blob/master/models/bird_AttnGAN2/next/0_s_0_a1.png">
 
