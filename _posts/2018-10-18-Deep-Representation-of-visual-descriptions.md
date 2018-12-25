@@ -43,7 +43,7 @@ icon: icon-html
 
 Attention : 
 
-<img src="https://i.imgur.com/RBRnYQy.png" width=720>
+<img src="https://i.imgur.com/RBRnYQy.png" width=720 height=200>
 
 ##### `Text : a large red and white boat floating on top of a lake`  
 ![](https://github.com/ASH1998/Deep-Representation-of-Visual-Descriptionsmodels/coco_AttnGAN2/example_captions/0_s_3_g2.png)
