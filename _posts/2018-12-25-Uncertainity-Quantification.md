@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Uncertainity-Quantification"
+title:  "Uncertainty-Quantification"
 date:   2018-12-25
 desc: "UQ"
 keywords: "Ashutosh,Python,ML, Tech"
@@ -13,7 +13,7 @@ icon: icon-html
 
 
 
-Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainity** is important.
+Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such cases, models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainity** is important.
 
 
 
@@ -29,13 +29,13 @@ For example : An image classification system erroneously identified two African 
 
 **_BDL(Bayesian Deep Learning)_**
 
-Most materials in this post have been taken from two papers below by Alex Kendal and Yarin Gal.
+Most materials in this post have been taken from two papers below by [Alex Kendal](https://alexgkendall.com/) and [Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/).
 - What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? Alex Kendall and Yarin Gal, 2017. [(.pdf)](https://arxiv.org/pdf/1703.04977.pdf) 
 - Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics. Alex Kendall, Yarin Gal and Roberto Cipolla, 2017. [(.pdf)](https://arxiv.org/pdf/1705.07115.pdf)
 
 
 
-## Types of Uncertainty : 
+## **Types of Uncertainty** : 
 
 1. **Mathematical model and experimental measurement**
     - Parameter
@@ -52,22 +52,22 @@ Most materials in this post have been taken from two papers below by Alex Kendal
 We will discuss the later part of uncertainty i.e model generated in this blog.
 
 
-## Epistemoc Uncertainty
+## **Epistemic Uncertainty**
 
-**_Epistemic Uncertainty_** causes when model ignores certain effects or because a particular part of data is hidden. This happens mostly due to low variance in training samples. 
+**_Epistemic Uncertainty_** is caused when model ignores certain effects or because a particular part of data is hidden. This happens mostly due to low variance in training samples.       
 Useful in:
 - Safety critical applications
 - Small datasets.
 
-## Aleatoric Uncertainty
+## **Aleatoric Uncertainty**
 
-**_Aleatoric Uncertainty_** Aleatoric uncertainty captures our uncertainty with respect to information which our data cannot explain. For example, aleatoric uncertainty in images can be attributed to occlusions (because cameras can’t see through objects).
+**_Aleatoric Uncertainty_** Aleatoric uncertainty captures the uncertainty with respect to information which our data cannot explain. For example, aleatoric uncertainty in images can be attributed to occlusions (because cameras can’t see through objects).     
 Useful in : 
 - Large data situations
 - Real-time applications, because we can form aleatoric models as a deterministic function of the input data, without expensive Monte Carlo sampling.
 
 
-Image from `What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?`
+Image from What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?
 ---------------------------------------------------------------------------
 
 ![](https://i.imgur.com/yYWp3af.jpg)
@@ -89,6 +89,8 @@ Epistemic uncertainty is much harder to model. This requires us to model distrib
 
 --------------------------------------------------------------------------
 
+## **Example**
+
 Next an example to deal with model uncertainty on an ensemble model for SPY 500 prediction using keras backend.
 Find the full notebook here : [MLSPY500.nb](https://github.com/ASH1998/MLAlgorithms/blob/master/NewMLSPY_(1).html)
 
@@ -107,7 +109,6 @@ Find the full notebook here : [MLSPY500.nb](https://github.com/ASH1998/MLAlgorit
         Merror = (st.norm.ppf((1+(confidence/100))/2))*model_uncer
 
         return Merror
-`
 
         Parameters      
         '''     
@@ -117,7 +118,7 @@ Find the full notebook here : [MLSPY500.nb](https://github.com/ASH1998/MLAlgorit
         :B: int, beta factor for number of iterations for Monte Carlo       
         :confidence: percent;int , percent factor of uncertainity       
         '''
-
+`
 - Getting uncertainity in any model.
 
 - Theory:
@@ -187,13 +188,13 @@ The result is shown below.
 
 Here we get a unceratinty rate of 75% as input and the output follows.
 
-## Summary
+## **Summary**
 
 To get uncertainty intervals you either:
 1. add a prior to the model, approximate the posterior via variational inference, and then sample from the posterior.
 2. run existing model a bunch of times with dropout layers turned on.
 
-References:
+**References** :
 1. [Concrete Dropout](https://arxiv.org/abs/1705.07832)
 2. What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? Alex Kendall and Yarin Gal, 2017. [(.pdf)](https://arxiv.org/pdf/1703.04977.pdf) 
 3. Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics. Alex Kendall, Yarin Gal and Roberto Cipolla, 2017. [(.pdf)](https://arxiv.org/pdf/1705.07115.pdf)
