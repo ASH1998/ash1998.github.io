@@ -13,6 +13,8 @@ icon: icon-html
 
 
 
+[**__This page works best with desktop site(the canvas graph below!)__**](https://ash1998.github.io/deep%20learning/python/machine%20learning/2018/12/25/Uncertainity-Quantification.html)
+
 Many a times Deep Neural Networks trained on large datasets have remarkable accuracy. But sometimes they can't predict as accurate, these might be due to limited training data, poor generalization, or because of noise in data. In many such cases, models whose main goal is to predict something that will have a long term impact on decision making representing **uncertainty** is important.
 
 
