@@ -7,10 +7,10 @@
     detail: Developing backend for deploying a server for day-stock prediction and trading. Predicting long term dependencies for NIFTY using xgboost and ensemble of LSTM and GRU.
     i18n: company_a_desc
   date:
-    detail: Jul. 2018
+    detail: Aug. 2018
     i18n: company_a_date
   job:
-    detail: Software Engineering Intern
+    detail: Data Science Intern
     i18n: company_a_job
   icon: fa-plus-square
 
@@ -21,7 +21,7 @@
     detail: Financial data modeling.Statistical analysis on long term prediction for hedge-funds like S&P 500 with 92% accuracy.Testing and developing models for stock price prediction.
     i18n: company_a_desc
   date:
-    detail: Apr. 2018
+    detail: Jun. 2018
     i18n: company_a_date
   job:
     detail: Machine Learning Intern
@@ -35,7 +35,7 @@
     detail: Process economic and finance domain algorithms and methods for feature extraction.Use LSTM,Dynamic Time Wraping, Clustering and scalable methods to build prediction system.Create a GDP prediction system with 5% more accurate than IMF. 
     i18n: company_b_desc
   date:
-    detail: Jan. 2018
+    detail: Feb. 2018
     i18n: company_b_date
   job:
     detail: Data Science Intern
@@ -52,7 +52,7 @@
     detail: Apr. 2019
     i18n: company_c_date
   job:
-    detail: UnderGraduate Student
+    detail: Computer Science Graduate
     i18n: company_c_job
   icon: fa-plus-square
 
