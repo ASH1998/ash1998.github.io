@@ -11,7 +11,7 @@ icon: icon-html
 
 # Doodle-gan
 Generate doodle of certain things using GANs
-## visit : https://ash1998.github.io/Doodle-gan/ to see tensorflow graph!!
+## visit : https://ash1998.github.io/Doodle-gan/ to see tensorflow graph!!!
 
 
 
@@ -74,7 +74,7 @@ plt.show()
 ```
 
 
-![png](output_5_0.png)
+![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_5_0.png)
 
 
 
@@ -359,7 +359,7 @@ plt.show()
 ```
 
 
-![png](output_26_0.png)
+![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_26_0.png)
 
 
 
@@ -387,7 +387,7 @@ _ = view_samples(299, samples)
 ```
 
 
-![png](output_29_0.png)
+![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_29_0.png)
 
 
 
@@ -403,5 +403,5 @@ for sample, ax_row in zip(samples[::int(len(samples)/rows)], axes):
 ```
 
 
-![png](output_30_0.png)
+![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_30_0.png)
 
