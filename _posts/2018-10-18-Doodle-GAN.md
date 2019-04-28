@@ -13,6 +13,7 @@ icon: icon-html
 Generate doodle of certain things using GANs
 ## visit : https://ash1998.github.io/Doodle-gan/ to see tensorflow graph!!!
 
+NOTEBOOK :       
 
 
 ```python
@@ -74,7 +75,7 @@ plt.show()
 ```
 
 
-![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_5_0.png)
+![png](https://imgur.com/a/wCWTTAq.png)
 
 
 
