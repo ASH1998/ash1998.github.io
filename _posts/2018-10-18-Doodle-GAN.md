@@ -13,7 +13,7 @@ icon: icon-html
 Generate doodle of certain things using GANs
 ## visit : https://ash1998.github.io/Doodle-gan/ to see tensorflow graph!!!
 
-NOTEBOOK :       
+## Jupyter NOTEBOOK :       
 
 
 ```python
