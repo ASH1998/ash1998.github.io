@@ -75,7 +75,7 @@ plt.show()
 ```
 
 
-![png](https://imgur.com/a/wCWTTAq.png)
+![](https://i.imgur.com/kRQ5hW7.png)
 
 
 
@@ -360,7 +360,7 @@ plt.show()
 ```
 
 
-![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_26_0.png)
+![png](https://i.imgur.com/k811hGp.png)
 
 
 
@@ -388,7 +388,7 @@ _ = view_samples(299, samples)
 ```
 
 
-![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_29_0.png)
+![png](https://i.imgur.com/3laMedt.png)
 
 
 
@@ -404,5 +404,5 @@ for sample, ax_row in zip(samples[::int(len(samples)/rows)], axes):
 ```
 
 
-![png](https://github.com/ASH1998/ash1998.github.io/blob/master/_posts/output_30_0.png)
+![png](https://i.imgur.com/PQ0ieQ5.png)
 
