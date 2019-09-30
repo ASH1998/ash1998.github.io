@@ -1,6 +1,6 @@
 # skills section data
 
-label: Ability
+label: Skill Level
 id : cs
-aspects: Machine Learing, Sklearn, Deep Learning, Tensorflow, Keras, PyTorch, Python, Flask, Image Processing, OpenCV, Natural Language Processing, Data Visualization, Cloud Computing,	SQL,C++
+aspects: Machine Learing, Sklearn, Deep Learning, Tensorflow, Keras, PyTorch, Python, Flask, Image Processing, OpenCV, Natural Language Processing, Data Visualization, Cloud Computing,	PostgreSQL,C++
 percentage: 90, 85, 75, 70, 80, 75, 90, 60, 70, 75, 80, 90, 60, 70, 60
