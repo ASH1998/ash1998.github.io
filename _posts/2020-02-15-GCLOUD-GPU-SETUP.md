@@ -52,20 +52,4 @@ fi
 - Then after it is complete you can check the status by   
 `nvidia-smi` :    
 Result should be something like 
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 440.33.01    Driver Version: 440.33.01    CUDA Version: 10.2     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|===============================+======================+======================|
-|   0  Tesla T4            Off  | 00000000:00:04.0 Off |                    0 |
-| N/A   64C    P0    28W /  70W |    173MiB / 15109MiB |      0%      Default |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                       GPU Memory |
-|  GPU       PID   Type   Process name                             Usage      |
-|=============================================================================|
-|    0      1945      G   /usr/lib/xorg/Xorg                            62MiB |
-|    0      4183      C   python                                        99MiB |
-+-----------------------------------------------------------------------------+
+![from https://github.com/torch/cutorch/issues/478 ](https://camo.githubusercontent.com/98d45361d9e667750865d2b2574d22921b875214/68747470733a2f2f7331342e706f7374696d672e696f2f36686d7a656f616f782f696d6167652e706e67)
