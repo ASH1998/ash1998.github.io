@@ -51,5 +51,9 @@ fi
 
 - Then after it is complete you can check the status by   
 `nvidia-smi` :    
-Result should be something like 
+Result should be something like this 
+------------------------------------------------
+
+
+
 ![from https://github.com/torch/cutorch/issues/478 ](https://camo.githubusercontent.com/98d45361d9e667750865d2b2574d22921b875214/68747470733a2f2f7331342e706f7374696d672e696f2f36686d7a656f616f782f696d6167652e706e67)
