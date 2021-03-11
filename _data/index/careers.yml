@@ -4,17 +4,7 @@
     detail: Riverus
     i18n: company_a
   desc:
-    detail: • Extraction of high value analytics from Legal Corpus
-• Extraction of common provisions, clauses, and data points from Contracts with 90% precision
-• Building robust ML pipelines with concurrent API end points
-• Improved in-house API to serve multiple requests faster by 10%
-• Lessened speed of text-based captcha solving by 25% using SOTA object detection
-• Improvising fuzzy text matching to be 25% faster on large scale text matching of quoted text between multiple Legal Corpus
-• Programmed a Case summarization tool of relative chronology of case proceedings using SOTA transformers based models
-• Developed a first person reasoning model to identify the polarity of speaker
-• Building, scaling and deploying an ensemble model of transformer and supervised machine learning algorithms to extract information in form of one-class classification
-• Incorporated a sentence similarity model to find similar text wrt. context of the text using SOTA Natural Language Understanding techniques 
-• Assembled a system to help customers identify in case of force-majeure or renewal of contracts using dependency parsing and word2vec
+    detail: • Extraction of high value analytics from Legal Corpus • Extraction of common provisions, clauses, and data points from Contracts with 90% precision • Building robust ML pipelines with concurrent API end points • Improved in-house API to serve multiple requests faster by 10% • Lessened speed of text-based captcha solving by 25% using SOTA object detection • Improvising fuzzy text matching to be 25% faster on large scale text matching of quoted text between multiple Legal Corpus • Programmed a Case summarization tool of relative chronology of case proceedings using SOTA transformers based models • Developed a first person reasoning model to identify the polarity of speaker • Building, scaling and deploying an ensemble model of transformer and supervised machine learning algorithms to extract information in form of one-class classification • Incorporated a sentence similarity model to find similar text wrt. context of the text using SOTA Natural Language Understanding techniques  • Assembled a system to help customers identify in case of force-majeure or renewal of contracts using dependency parsing and word2vec
     i18n: company_a_desc
   date:
     detail: Jun. 2019
