@@ -1,68 +1,51 @@
----
-layout: blog
-title: index
-permalink: /
----
-
-<div class="navbar-wrapper">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#page-top" id="i18_title"><span data-i18n="website.title">{{ site.title }}</span></a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ashutosh Mishra — Data Scientist & AI Engineer</title>
+  <meta name="description" content="Ashutosh Mishra is a Senior Data Scientist building GenAI and machine learning systems at scale. Explore his experience, technical practice, and writing.">
+  <meta name="theme-color" content="#080b10">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23080b10'/%3E%3Cpath d='M9 29 20 9l11 20M14 23h12' fill='none' stroke='%23a4b2ff' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/portfolio/styles.css"><script src="/static/portfolio/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="atmosphere" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header><a class="monogram" href="#overview" aria-label="Ashutosh Mishra home">a<span>m</span></a><nav aria-label="Main navigation"><a class="active" href="#overview">Overview</a><a href="#experience">Experience</a><a href="#practice">Practice</a><a href="#writing">Writing</a></nav></header>
+  <div class="top-links"><a href="https://github.com/ASH1998" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a><a href="mailto:prog.mishra@gmail.com">Get in touch <span>↗</span></a></div>
+  <aside class="particle-stage" aria-label="Interactive particle sculpture">
+    <button class="sculpture" id="sculpture" aria-label="Scatter particles and change shape"><canvas id="particles" aria-hidden="true"></canvas></button>
+    <div class="sculpture-caption"><div class="shape-line"><button id="shape-name" type="button" aria-live="polite" aria-label="Next particle form" title="Next form">01 / Sphere ↗</button><button id="motion" aria-pressed="false" aria-label="Pause particle animation">Pause motion</button></div><p>Small connections.<br>Extraordinary possibilities.</p><span class="interaction-hint">Click the form to reshape it <span>↗</span></span></div>
+  </aside>
+  <main id="main">
+    <section class="hero chapter" id="overview" data-shape="0"><div class="hero-copy"><p class="eyebrow">ASHUTOSH MISHRA <span> / </span> DATA SCIENTIST</p><h1>Intelligence, built<br>for the real world.</h1><p class="intro">I build AI that moves from possibility to production. Seven years of turning data into GenAI and machine learning systems used by millions.</p><div class="hero-links"><a href="#experience">Explore my work <span>↓</span></a><a href="https://www.linkedin.com/in/ash1998" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span>↗</span></a></div><p class="current">Currently · Senior Data Scientist at S&P Global</p></div><div class="scroll-cue"><span>SCROLL TO EXPLORE</span><span class="hairline"></span>01 — 05</div></section>
+    <section class="chapter" id="experience" data-shape="1">
+      <p class="eyebrow">01 / EXPERIENCE</p><h2>From an idea<br>to everyday impact.</h2>
+      <p class="section-intro">Building intelligent systems across enterprise AI, personalisation, and language understanding.</p>
+      <div class="timeline">
+        <article class="role"><div class="role-meta"><span>2025 — PRESENT</span><span>01</span></div><h3>S&P Global</h3><p class="role-title">Senior Data Scientist</p><p>Building graph-based LLM agents to enable sales teams and connect people with the right expertise.</p><span class="tagline">Graph networks · LLM agents · AI at scale</span></article>
+        <article class="role"><div class="role-meta"><span>OCT 2023 — JUL 2025</span><span>02</span></div><h3>Wipro</h3><p class="role-title">AI Lead, GenAI Practice</p><p>Led a team of 10 GenAI developers. Built root-cause analysis applications that reduced mean time to recovery by 15%.</p><details><summary>More about the work <span>+</span></summary><p>Fine-tuned large language models for task-specific recommendations, benchmarked models across hardware, and trained and deployed small language models for on-premise root-cause analysis.</p></details><span class="tagline">Generative AI · Fine-tuning · Model deployment</span></article>
+        <article class="role"><div class="role-meta"><span>MAY 2021 — OCT 2023</span><span>03</span></div><h3>Let's Cooee</h3><p class="role-title">Data Scientist</p><p>Developed personalised notifications with reinforcement learning, improving user retention by 4.5%. Optimised database queries to make payload generation 10% faster.</p><span class="tagline">Reinforcement learning · Genetic algorithms · Personalisation</span></article>
+        <article class="role"><div class="role-meta"><span>JUN 2019 — MAY 2021</span><span>04</span></div><h3>Riverus</h3><p class="role-title">Associate Data Scientist</p><p>Built NLP systems for legal documents: semantic similarity, case summarisation, and contract information extraction. Made large-scale fuzzy text matching 25% faster.</p><details><summary>More about the work <span>+</span></summary><p>Developed production ML pipelines and concurrent APIs, transformer-based legal case chronology, speaker polarity models, and ensemble systems for extracting clauses and data points from contracts.</p></details><span class="tagline">Transformers · NLP · Information extraction</span></article>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right" id="i18_navbar">
-          {% for section in site.data.landing %}
-          <li>
-            {% if section.page %}
-              <a class="page-scroll" href="{{ section.page}} ">
-            {% else %}
-              <a class="page-scroll" href="{{ section.id | prepend: '#'}} ">
-            {% endif %}
-              <span data-i18n="{{ section.i18n }}">{{ section.name }}</span>
-            </a>
-          </li>
-          {% endfor %}
-          {% for language in site.data.index.language %}
-          <li>
-            <a id="set_lang_{{ language.locale }}" class="btn btn-sm set_{{ language.locale }}" data-locale="{{ language.locale }}">
-              <img src="{{ language.flag | prepend: site.baseurl }}" height="16" width="16">
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </nav>
-</div>
-{% if site.index_carousel %}
-{% include carousel.html %}
-{% endif %}
+    </section>
+    <section class="chapter" id="practice" data-shape="2">
+      <p class="eyebrow">02 / PRACTICE</p><h2>Curiosity meets<br>engineering.</h2><p class="section-intro">My work connects machine learning research with the systems that make it useful.</p>
+      <div class="skill-row"><span>Intelligence</span><p>Generative AI, LLMs, NLP, deep learning, reinforcement learning, graph networks</p></div>
+      <div class="skill-row"><span>Engineering</span><p>Python, SQL / NoSQL, cloud infrastructure, Docker, CI/CD, scalable ML pipelines</p></div>
+      <div class="skill-row"><span>Research</span><p>Uncertainty quantification, Bayesian methods, time series, model benchmarking</p></div>
+      <div class="education"><p class="eyebrow">FOUNDATIONS</p><h3>IGIT</h3><p>B.Tech, Computer Science · 2015–2019<br>Honours in Artificial Intelligence and Real Time Systems</p></div>
+      <details class="early-work"><summary>Early work & internships <span>+</span></summary><div class="intern"><h3>KG LLP <span>Aug — Sep 2018</span></h3><p>Data Science Intern · Financial time series, deep learning, and uncertainty quantification.</p></div><div class="intern"><h3>TINO IQ <span>Jun — Aug 2018</span></h3><p>Machine Learning Intern · Financial modelling and stock price prediction.</p></div><div class="intern"><h3>Intel Indexer LLC <span>Feb — May 2018</span></h3><p>Project Intern · Economic prediction, dynamic time warping, and Bayesian methods.</p></div></details>
+    </section>
+    <section class="chapter" id="writing" data-shape="3"><p class="eyebrow">03 / WRITING</p><h2>Notes from<br>the exploration.</h2><p class="section-intro">Ideas, research, and practical tools collected along the way.</p>
+      <a class="article-link" href="https://www.ashutoshmishra.dev/blogs/uq-classification" target="_blank" rel="noopener noreferrer"><div><span class="article-type">MACHINE LEARNING</span><h3>Uncertainty Quantification</h3></div><span>↗</span></a>
+      <a class="article-link" href="https://www.ashutoshmishra.dev/blogs/research-papers-explained" target="_blank" rel="noopener noreferrer"><div><span class="article-type">RESEARCH</span><h3>Research Papers Explained</h3></div><span>↗</span></a>
+      <a class="article-link" href="https://www.ashutoshmishra.dev/blogs/handy-tools-for-development-in-windows" target="_blank" rel="noopener noreferrer"><div><span class="article-type">DEVELOPER TOOLS</span><h3>A better Windows development setup</h3></div><span>↗</span></a>
+      <a class="article-link" href="https://www.ashutoshmishra.dev/blogs/matplotlib-info-sheet" target="_blank" rel="noopener noreferrer"><div><span class="article-type">DATA VISUALISATION</span><h3>Matplotlib Info Sheet</h3></div><span>↗</span></a>
+    </section>
+    <section class="chapter contact" id="contact" data-shape="0"><p class="eyebrow">04 / CONNECT</p><h2>Good things start<br>with a conversation.</h2><p class="section-intro">Have an interesting problem in AI, an idea to explore, or just want to say hello?</p><a class="email" href="mailto:prog.mishra@gmail.com">prog.mishra@gmail.com <span>↗</span></a><div class="social-links"><a href="https://www.linkedin.com/in/ash1998" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/ASH1998" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://stackoverflow.com/users/7454706/ashu2" target="_blank" rel="noopener noreferrer">Stack Overflow ↗</a></div></section>
+  </main>
+  <footer><a href="#overview">Ashutosh Mishra</a><span>© 2026</span><a href="https://github.com/ASH1998" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+</body></html>
 
-{% for section in site.data.landing %}
-{% assign loopindex = forloop.index | modulo: 2 %}
-<section id="{{ section.id }}" class="features {% if loopindex != 1 %} gray-section {% endif %} {{ section.css }}" style="margin-top: 0;">
-  {% include sections/{{section.tpl}} %}
-</section>
-{% endfor %}
-<style>
-iframe {
-  -moz-transform: scale(0.25, 0.25);
-  -webkit-transform: scale(0.25, 0.25);
-  -o-transform: scale(0.25, 0.25);
-  -ms-transform: scale(0.25, 0.25);
-  transform: scale(0.25, 0.25);
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -o-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-}
-</style>
-<!-- <iframe src="https://www.maimemo.com/share/page/?uid=779139&pid=660" style="display: none;"></iframe> -->
+
