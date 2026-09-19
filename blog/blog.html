@@ -1,48 +1,22 @@
 ---
-layout: blog
+layout: journal
 title: Blog
+desc: Notes and experiments in machine learning, language, and the tools behind the work.
 permalink: /blog/
 ---
-
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        <h1>Latest Blog</h1>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-        <div class="wrapper wrapper-content animated fadeInRight">
-
-            <!-- latest 10 blog -->
-			{% for post in site.posts limit:10 %}
-            <div class="vote-item">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="vote-actions">
-                        </div>
-                        <a href="{{ post.url | prepend: site.baseurl }}" class="vote-title">
-                            {{ post.title }}
-                        </a>
-                        <div class="vote-info">
-                        {% if site.disqus %}
-                            <i class="fa fa-comments-o"> </i> <a>Comments (<span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ post.url }}">0</span>)</a>
-                        {% endif %}
-                            <i class="fa fa-clock-o"></i> <a>{{ post.date | date: "%-d %b %Y" }}</a>
-                            <i class="fa fa-user"></i> <a>{{ site.author.name }}</a>
-                        </div>
-                    </div>
-                    <div class="col-md-2 ">
-                        <div class="vote-icon">
-                            {% if post.icon %}<i class="fa {{ post.icon }}"> </i>{% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-
-</div>
-
+<section class="journal-intro">
+  <p class="eyebrow">ASHUTOSH MISHRA / JOURNAL</p>
+  <h1>Ideas in progress.<br>Lessons from building.</h1>
+  <p class="journal-deck">Notes on machine learning, language, and the tools behind the work. A record of questions, experiments, and things learned along the way.</p>
+</section>
+<section class="journal-archive" aria-labelledby="archive-title">
+  <div class="archive-heading"><h2 id="archive-title">From the archive</h2><span>{{ site.posts.size }} entries</span></div>
+  {% for post in site.posts %}
+  <a class="journal-entry" href="{{ post.url }}">
+    <div class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time><span>{{ forloop.index | prepend: '0' }}</span></div>
+    <div class="entry-copy"><p class="entry-category">{{ post.categories | join: ' / ' }}</p><h3>{{ post.title | replace: '-', ' ' | escape }}</h3>{% if post.desc %}<p>{{ post.desc | escape }}</p>{% endif %}</div>
+    <span class="entry-arrow" aria-hidden="true">↗</span>
+  </a>
+  {% endfor %}
+</section>
+<section class="journal-elsewhere" aria-labelledby="elsewhere-title"><p class="eyebrow">CONTINUE EXPLORING</p><h2 id="elsewhere-title">More notes, elsewhere.</h2><div class="elsewhere-links"><a href="https://www.ashutoshmishra.dev/blogs/research-papers-explained" target="_blank" rel="noopener noreferrer">Research Papers Explained <span>↗</span></a><a href="https://www.ashutoshmishra.dev/blogs/handy-tools-for-development-in-windows" target="_blank" rel="noopener noreferrer">Windows development tools <span>↗</span></a><a href="https://www.ashutoshmishra.dev/blogs/matplotlib-info-sheet" target="_blank" rel="noopener noreferrer">Matplotlib Info Sheet <span>↗</span></a></div></section>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | escape }} — Ashutosh Mishra</title>
+  <meta name="description" content="{{ page.desc | default: 'Notes on machine learning, research, and the tools behind the work.' | escape }}">
+  <meta name="theme-color" content="#080b10">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23080b10'/%3E%3Cpath d='M9 29 20 9l11 20M14 23h12' fill='none' stroke='%23a4b2ff' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/portfolio/styles.css">
+  <link rel="stylesheet" href="/static/portfolio/journal.css">
+  <script src="/static/portfolio/journal.js" defer></script>
+</head>
+<body class="blog-site">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="atmosphere" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header><a class="monogram" href="/" aria-label="Ashutosh Mishra home">a<span>m</span></a><nav aria-label="Main navigation"><a href="/">Overview</a><a href="/#experience">Experience</a><a href="/#practice">Practice</a><a class="active" aria-current="page" href="/blog/">Blog</a></nav></header>
+  <div class="top-links"><a href="https://github.com/ASH1998" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:prog.mishra@gmail.com">Get in touch ↗</a></div>
+  <main id="main" class="journal-main">{{ content }}</main>
+  <footer><a href="/">Ashutosh Mishra</a><span>© {{ site.time | date: '%Y' }}</span><a href="/blog/">Back to the journal ↑</a></footer>
+</body>
+</html>

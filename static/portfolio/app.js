@@ -10,7 +10,7 @@
   const gc=grain.getContext('2d'),noise=gc.createImageData(180,180);
   for(let i=0;i<noise.data.length;i+=4){const v=rand()*255;noise.data[i]=noise.data[i+1]=noise.data[i+2]=v;noise.data[i+3]=255;}
   gc.putImageData(noise,0,0);document.querySelector('.grain').style.backgroundImage=`url(${grain.toDataURL()})`;
-  const canvas=document.querySelector('#particles'),ctx=canvas.getContext('2d');
+  const canvas=document.querySelector('#particles'),renderer=window.createParticleRenderer(canvas);
   const sculpture=document.querySelector('#sculpture'),label=document.querySelector('#shape-name'),motion=document.querySelector('#motion');
   const hint=document.querySelector('.interaction-hint');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width:700px)');
@@ -18,7 +18,7 @@
   const names=['Sphere','Cube','Octahedron','Orbit','Catenoid','Möbius','Black hole','Double helix','Trefoil','Gyroscope'];
   const quirks=['Click to disperse','Click to spin faster','Click to send a ripple','Click to stir the orbit','Click to flex the surface','Click to twist the ribbon','Click to pull spacetime inward','Click to unzip the strands','Click to send a knot pulse','Click to accelerate the rings'];
   const forms=names.map(()=>new Float32Array(count*6));
-  const current=new Float32Array(count*6),origin=new Float32Array(count*6);
+  const current=new Float32Array(count*6),origin=new Float32Array(count*6),visibleGeometry=new Float32Array(count*6);
   const seeds=new Float32Array(count*4),rendered=new Float32Array(count*5),buckets=Array.from({length:40},()=>[]);
   function surface(form,i,x,y,z,nx,ny,nz){const d=Math.hypot(nx,ny,nz)||1;forms[form].set([x,y,z,nx/d,ny/d,nz/d],i*6);}
   function mobius(u,v){return [(.79+v*Math.cos(u/2))*Math.cos(u),v*Math.sin(u/2),(.79+v*Math.cos(u/2))*Math.sin(u)];}
@@ -60,20 +60,20 @@
     surface(9,i,...gp,...gn);
     seeds.set([rand(),rand(),rand(),rand()],i*4);
   }
-  current.set(forms[0]);origin.set(current);
+  current.set(forms[0]);origin.set(current);visibleGeometry.set(current);
   let w=0,h=0,scale=1,shape=0,sim=0,last=0,raf=0,morphStart=-5,nextMorph=8;
-  let paused=reduced.matches,visible=true,yaw=.52,pitch=-.24,spin=0,vx=0,vy=0;
+  let paused=reduced.matches,visible=true,yaw=.52,pitch=-.24,spin=0,spinGoal=0,vx=0,vy=0,dragYaw=.52,dragPitch=-.24;
   let pointerX=0,pointerY=0,lightX=-.4,lightY=-.55,hover=0,present=false;
   let down=false,dragged=false,dragDistance=0,prevX=0,prevY=0,prevTime=0,touch=false;
   let effect=null,clickDir=[0,0,1];
   function describe(){label.textContent=`${String(shape+1).padStart(2,'0')} / 10 · ${names[shape]} ↗`;hint.textContent=`${quirks[shape]} · drag to rotate`;sculpture.setAttribute('aria-label',`${names[shape]} particles. ${quirks[shape]}. Drag to rotate; arrow keys change form.`);canvas.dataset.shape=names[shape];}
   function setShape(next,immediate=false){
     next=(next+names.length)%names.length;if(next===shape&&!immediate)return;
-    origin.set(current);shape=next;morphStart=sim;nextMorph=sim+10;effect=null;describe();
+    origin.set(visibleGeometry);shape=next;morphStart=sim;nextMorph=sim+10;effect=null;describe();
     if(paused||immediate){current.set(forms[shape]);morphStart=sim-5;}
     if(paused)render(0);
   }
-  function resize(){const rect=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);w=rect.width;h=rect.height;scale=Math.min(w*.34,h*.35);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);render(0);}
+  function resize(){const rect=canvas.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);w=rect.width;h=rect.height;scale=Math.min(w*.34,h*.35);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);renderer.resize(w,h,dpr);render(0);}
   function lightPointer(e){const r=canvas.getBoundingClientRect();pointerX=clamp((e.clientX-r.left-w/2)/scale,-1.6,1.6);pointerY=clamp((e.clientY-r.top-h/2)/scale,-1.6,1.6);present=true;}
   function energise(e){
     if(dragged){dragged=false;return;}if(paused)return;
@@ -84,24 +84,29 @@
     clickDir=[px*cy-zz*sy,yy,px*sy+zz*cy];const norm=Math.hypot(...clickDir);clickDir=clickDir.map(v=>v/norm);
     const kind=['scatter','tumble','ripple','vortex','flex','twist','singularity','unzip','knot-pulse','gimbal'][shape];
     effect={kind,start:sim};canvas.dataset.effect=kind;
-    spin=Math.min(4,spin+(kind==='tumble'?2.1:kind==='vortex'?1.25:.18));
+    spinGoal=Math.min(4,spinGoal+(kind==='tumble'?2.1:kind==='vortex'?1.25:.18));
     if(kind==='tumble')vy+=py>=0?.45:-.45;
     nextMorph=sim+10;
   }
   function render(dt){
     const ease=1-Math.exp(-dt*5);
     lightX+=((present?pointerX:-.4)-lightX)*ease;lightY+=((present?pointerY:-.55)-lightY)*ease;hover+=((present?1:0)-hover)*ease;
-    if(!paused){if(!down){yaw+=dt*(.075+spin+vx);pitch+=vy*dt;vx*=Math.exp(-dt*1.7);vy*=Math.exp(-dt*1.7);}spin*=Math.exp(-dt*1.05);if(sim>=nextMorph&&!down&&!effect)setShape(shape+1);}
+    if(!paused){
+      if(down){const follow=1-Math.exp(-dt*18);yaw+=(dragYaw-yaw)*follow;pitch+=(dragPitch-pitch)*follow;}
+      else{yaw+=dt*(.075+spin+vx);pitch+=vy*dt;vx*=Math.exp(-dt*1.7);vy*=Math.exp(-dt*1.7);}
+      spin+=(spinGoal-spin)*(1-Math.exp(-dt*10));spinGoal*=Math.exp(-dt*.9);
+      if(sim>=nextMorph&&!down&&!effect&&!present)setShape(shape+1);
+    }
     const cy=Math.cos(yaw),sy=Math.sin(yaw),cx=Math.cos(pitch),sx=Math.sin(pitch),lx=lightX*.9,ly=lightY*.9,lz=.8,ln=Math.hypot(lx,ly,lz);
     const elapsed=effect?sim-effect.start:100,kind=effect?.kind;
     if(effect&&elapsed>3.8){effect=null;canvas.dataset.effect='idle';}
     const envelope=Math.sin(clamp(elapsed/3.1)*Math.PI)**2;
     const gravity=kind==='singularity'?envelope:0,unzip=kind==='unzip'?envelope:0,knotPulse=kind==='knot-pulse'?envelope:0,gimbal=kind==='gimbal'?envelope:0;
     const blast=kind==='scatter'?envelope:0,swirl=['vortex','twist'].includes(kind)?envelope:0,flex=kind==='flex'?Math.sin(elapsed*5)*Math.exp(-elapsed*.9):0;
-    ctx.clearRect(0,0,w,h);for(const b of buckets)b.length=0;
+    for(const b of buckets)b.length=0;
     for(let i=0;i<count;i++){
       const o=i*6,s=i*4,j=i*5,t=smooth((sim-morphStart-seeds[s]*.3)/1.9);
-      if(t<1&&!paused){for(let k=0;k<6;k++)current[o+k]=mix(origin[o+k],forms[shape][o+k],t);}else if(t>=1){for(let k=0;k<6;k++)current[o+k]=forms[shape][o+k];}
+      if(t<1&&!paused){for(let k=0;k<6;k++)current[o+k]=mix(origin[o+k],forms[shape][o+k],t);}else if(t>=1&&sim-morphStart<2.3){for(let k=0;k<6;k++)current[o+k]=forms[shape][o+k];}
       let x=current[o],y=current[o+1],z=current[o+2],nx=current[o+3],ny=current[o+4],nz=current[o+5];
       let specialLight=0,specialAlpha=1;
       if(shape===6){
@@ -134,11 +139,12 @@
       const nl=Math.hypot(nx,ny,nz)||1;nx/=nl;ny/=nl;nz/=nl;
       const length=Math.hypot(x,y,z)||1,distance=effect?Math.acos(clamp((x*clickDir[0]+y*clickDir[1]+z*clickDir[2])/length,-1,1)):0;
       const wave=effect?Math.exp(-(((distance-elapsed*2.6)/.24)**2))*Math.exp(-elapsed*.72):0;
-      const breathing=1+.009*Math.sin(sim*.78),scatter=blast*(.5+seeds[s+1]*.75),pulse=wave*(kind==='ripple'?.14:.025);
+      const breathing=1+t*.009*Math.sin(sim*.78),scatter=blast*(.5+seeds[s+1]*.75),pulse=wave*(kind==='ripple'?.14:.025);
       x=x*breathing+nx*pulse+x*scatter;y=y*breathing+ny*pulse+y*scatter;z=z*breathing+nz*pulse+z*scatter;
       if(blast){x+=Math.sin(seeds[s+2]*tau)*blast*.17;y+=Math.cos(seeds[s+3]*tau)*blast*.17;}
       if(flex){const pinch=1-flex*.36*Math.exp(-y*y*4);x*=pinch;z*=pinch;y*=1+flex*.16;}
       if(swirl){const twist=swirl*(kind==='twist'?y*5+Math.sin(Math.atan2(z,x))*1.3:y*3+.6),c=Math.cos(twist),ss=Math.sin(twist),old=x,oldn=nx;x=x*c-z*ss;z=old*ss+z*c;nx=nx*c-nz*ss;nz=oldn*ss+nz*c;if(kind==='vortex')y+=Math.sin(Math.atan2(z,x)*3-elapsed*5)*swirl*.17;}
+      visibleGeometry[o]=x/(1+blast*.55);visibleGeometry[o+1]=y/(1+blast*.55);visibleGeometry[o+2]=z/(1+blast*.55);visibleGeometry[o+3]=nx;visibleGeometry[o+4]=ny;visibleGeometry[o+5]=nz;
       const rx=x*cy+z*sy,rz=-x*sy+z*cy,ry=y*cx-rz*sx,depth=y*sx+rz*cx;
       const nrx=nx*cy+nz*sy,nrz=-nx*sy+nz*cy,nry=ny*cx-nrz*sx,nrz2=ny*sx+nrz*cx;
       const front=clamp((nrz2+.35)/1.35),lambert=Math.max(0,(nrx*lx+nry*ly+nrz2*lz)/ln),rim=clamp(1-Math.abs(nrz2))**2.4,sheen=lambert**14*hover;
@@ -150,20 +156,20 @@
       rendered[j]=w/2+rx*scale*perspective/(1+blast*.55);rendered[j+1]=h/2+ry*scale*perspective/(1+blast*.55);rendered[j+2]=radius;rendered[j+3]=alpha;rendered[j+4]=sheen+wave*.5+specialLight*.6;
       buckets[Math.floor(clamp((depth+2.5)/5)*39)].push(i);
     }
-    for(const bucket of buckets){for(const i of bucket){const j=i*5;ctx.globalAlpha=rendered[j+3];ctx.fillStyle=rendered[j+4]>.35?'#d1e0ff':'#91a0ec';ctx.beginPath();ctx.arc(rendered[j],rendered[j+1],rendered[j+2],0,tau);ctx.fill();}}ctx.globalAlpha=1;
+    renderer.draw(rendered,buckets,count,w,h);
   }
   function tick(now){raf=0;if(paused||document.hidden||!visible)return;const dt=Math.min(.04,(now-last)/1000||.016);last=now;sim+=dt;render(dt);raf=requestAnimationFrame(tick);}
   function start(){cancelAnimationFrame(raf);raf=0;if(!paused&&!document.hidden&&visible){last=performance.now();raf=requestAnimationFrame(tick);}}
   function motionLabel(){motion.textContent=paused?'Resume motion':'Pause motion';motion.setAttribute('aria-pressed',String(paused));motion.setAttribute('aria-label',paused?'Resume particle animation':'Pause particle animation');canvas.dataset.paused=String(paused);}
   sculpture.addEventListener('click',energise);label.addEventListener('click',()=>setShape(shape+1));
-  sculpture.addEventListener('pointerdown',e=>{if(e.button!==0||paused)return;down=true;dragged=false;dragDistance=0;prevX=e.clientX;prevY=e.clientY;prevTime=e.timeStamp;touch=e.pointerType==='touch';vx=vy=0;lightPointer(e);if(!touch)sculpture.setPointerCapture(e.pointerId);});
-  sculpture.addEventListener('pointermove',e=>{lightPointer(e);if(down){const dx=e.clientX-prevX,dy=e.clientY-prevY,dt=Math.max(.008,(e.timeStamp-prevTime)/1000);dragDistance+=Math.abs(dx)+Math.abs(dy);dragged=dragDistance>6;yaw+=dx*.007;pitch-=dy*.007;vx=clamp(dx*.007/dt,-3,3);vy=clamp(-dy*.007/dt,-3,3);prevX=e.clientX;prevY=e.clientY;prevTime=e.timeStamp;nextMorph=sim+8;}});
+  sculpture.addEventListener('pointerdown',e=>{if(e.button!==0||paused)return;down=true;dragYaw=yaw;dragPitch=pitch;dragged=false;dragDistance=0;prevX=e.clientX;prevY=e.clientY;prevTime=e.timeStamp;touch=e.pointerType==='touch';vx=vy=0;lightPointer(e);if(!touch)sculpture.setPointerCapture(e.pointerId);});
+  sculpture.addEventListener('pointermove',e=>{lightPointer(e);if(down){const dx=e.clientX-prevX,dy=e.clientY-prevY,dt=Math.max(.008,(e.timeStamp-prevTime)/1000);dragDistance+=Math.abs(dx)+Math.abs(dy);dragged=dragDistance>6;dragYaw+=dx*.007;dragPitch-=dy*.007;vx=mix(vx,clamp(dx*.007/dt,-3,3),.55);vy=mix(vy,clamp(-dy*.007/dt,-3,3),.55);prevX=e.clientX;prevY=e.clientY;prevTime=e.timeStamp;nextMorph=sim+8;}});
   const release=e=>{down=false;if(sculpture.hasPointerCapture(e.pointerId))sculpture.releasePointerCapture(e.pointerId);if(touch)present=false;};
   sculpture.addEventListener('pointerup',release);sculpture.addEventListener('pointercancel',e=>{release(e);dragged=false;vx=vy=0;});
-  sculpture.addEventListener('lostpointercapture',()=>{down=false;});sculpture.addEventListener('pointerleave',()=>{present=false;if(touch)down=false;});
-  sculpture.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft'].includes(e.key)){e.preventDefault();setShape(shape+(e.key==='ArrowRight'?1:-1));}if(e.key==='Escape'){effect=null;spin=vx=vy=0;}});
+  sculpture.addEventListener('lostpointercapture',()=>{down=false;});sculpture.addEventListener('pointerleave',()=>{present=false;nextMorph=Math.max(nextMorph,sim+2.5);if(touch)down=false;});
+  sculpture.addEventListener('keydown',e=>{if(['ArrowRight','ArrowLeft'].includes(e.key)){e.preventDefault();setShape(shape+(e.key==='ArrowRight'?1:-1));}if(e.key==='Escape'){effect=null;spin=spinGoal=vx=vy=0;}});
   motion.addEventListener('click',()=>{paused=!paused;down=false;motionLabel();start();});
-  reduced.addEventListener('change',()=>{paused=reduced.matches;effect=null;spin=vx=vy=0;motionLabel();start();});
+  reduced.addEventListener('change',()=>{paused=reduced.matches;effect=null;spin=spinGoal=vx=vy=0;motionLabel();start();});
   document.addEventListener('visibilitychange',start);
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;start();},{rootMargin:'80px'}).observe(canvas);
   new ResizeObserver(resize).observe(canvas);describe();motionLabel();resize();start();
@@ -171,6 +177,3 @@
   const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;nav.forEach(a=>{const active=a.hash===`#${entry.target.id}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});if(!mobile.matches&&!paused)setShape(sectionForms[entry.target.id]||0);}},{rootMargin:'-32% 0px -43% 0px',threshold:0});
   document.querySelectorAll('.chapter').forEach(section=>observer.observe(section));
 })();
-
-
-
