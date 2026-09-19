@@ -2,7 +2,7 @@
 
 Live at [ash1998.github.io](https://ash1998.github.io/).
 
-The homepage is a responsive portfolio with a grainy midnight background and ten interactive particle forms. Hover to illuminate surfaces, drag to rotate, and click for each form's effect. Use the shape label or left/right arrow keys to change forms. Motion can be paused and respects reduced-motion preferences.
+The homepage is a responsive portfolio with a grainy midnight background and ten interactive particle forms. Desktop scrolling uses fixed forms 1–5: Overview, Experience, Practice, Skills, and Achievements onward. Shapes never cycle automatically. Click the number/name label to explore extra forms 6–10; left/right arrow keys also browse those extras. Clicking the sculpture triggers its own effect (scatter, ripple, twist, and more) without selecting another shape. Hover illuminates surfaces and dragging rotates the current form. Motion can be paused and respects reduced-motion preferences.
 
 ## Editing the portfolio
 

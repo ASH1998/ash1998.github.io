@@ -9,4 +9,9 @@
 @media(max-width:360px){nav{gap:12px}.hero{min-height:1000px}h1{font-size:39px}.hero-links{gap:16px}.particle-stage{top:535px}.email{font-size:21px}}
 @media(max-width:700px){.hero{min-height:0;padding-bottom:85px}.particle-stage{position:relative;top:auto;left:auto;width:100%;height:430px;margin:15px auto 0;flex-shrink:0}.sculpture{height:315px}.sculpture-caption{width:86%}.current{margin-bottom:0}.scroll-cue{bottom:25px}}
 .sculpture{cursor:grab;user-select:none;-webkit-user-select:none}.sculpture:active{cursor:grabbing}.interaction-hint{display:block;line-height:1.7;font-size:11px}.sculpture canvas{touch-action:pan-y}.shape-line #shape-name{letter-spacing:.06em;text-align:left}
+.work-details{margin:14px 0 4px;padding-left:20px;font-size:14px;line-height:1.75}.work-details li{padding-left:3px;margin-bottom:12px}.work-details li::marker{color:var(--faint)}.work-details li:last-child{margin-bottom:0}.achievements{max-width:490px}.achievements>h3{font-family:Georgia,serif;font-size:26px;font-weight:400;letter-spacing:-.02em;margin-bottom:26px}.achievements ul{list-style:none;padding:0;margin:0}.achievements li{padding:24px 0;border-top:1px solid var(--line)}.achievement-label{font-size:10px;letter-spacing:.1em;color:#9099a8}.achievements li h3{font-family:Georgia,serif;font-size:23px;line-height:1.3;font-weight:400;margin:8px 0 0}.achievements p{font-size:14px;color:var(--muted);margin:10px 0 0}
+@media(max-width:700px){header{gap:16px}nav{gap:14px}.monogram{flex-shrink:0}}
+@media(max-width:360px){header{padding-left:20px;padding-right:20px;gap:12px}nav{gap:10px}nav a{font-size:11px}}
 
+
+@media(max-width:700px){header{align-items:flex-start}nav{flex-wrap:wrap;justify-content:flex-end;max-width:360px;column-gap:16px;row-gap:9px}html{scroll-padding-top:110px}}
