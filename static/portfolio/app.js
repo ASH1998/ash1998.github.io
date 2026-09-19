@@ -63,7 +63,9 @@
     seeds.set([rand(),rand(),rand(),rand()],i*4);
   }
   current.set(forms[0]);origin.set(current);visibleGeometry.set(current);
-  const morphDuration=2.5,morphStagger=.2;
+  // Slow interaction timelines only; rotation and idle motion use unscaled time.
+  const interactionDurationScale=1.6;
+  const morphDuration=2.5*interactionDurationScale,morphStagger=.2*interactionDurationScale;
   let w=0,h=0,scale=1,shape=0,sim=0,last=0,raf=0,morphStart=0,morphing=false;
   let paused=reduced.matches,visible=true,yaw=.52,pitch=-.24,spin=0,spinGoal=0,vx=0,vy=0,dragYaw=.52,dragPitch=-.24;
   let pointerX=0,pointerY=0,lightX=-.4,lightY=-.55,hover=0,present=false;
@@ -103,7 +105,7 @@
       spin=spin*spinDecay+6*spinGoal/5.1*(goalDecay-spinDecay);spinGoal*=goalDecay;
     }
     const form=order[shape],cy=Math.cos(yaw),sy=Math.sin(yaw),cx=Math.cos(pitch),sx=Math.sin(pitch),lx=lightX*.9,ly=lightY*.9,lz=.8,ln=Math.hypot(lx,ly,lz);
-    const elapsed=effect?sim-effect.start:100,kind=effect?.kind;
+    const elapsed=effect?(sim-effect.start)/interactionDurationScale:100,kind=effect?.kind;
     if(effect&&elapsed>3.8){effect=null;canvas.dataset.effect='idle';}
     const envelope=Math.sin(clamp(elapsed/3.1)*Math.PI)**2;
     const gravity=kind==='singularity'?envelope:0,unzip=kind==='unzip'?envelope:0,knotPulse=kind==='knot-pulse'?envelope:0,gimbal=kind==='gimbal'?envelope:0;
