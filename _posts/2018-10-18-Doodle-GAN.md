@@ -6,6 +6,8 @@ desc: "Doodle GAN project"
 keywords: "Ashutosh,Python,GAN,AttnGAN,blog,easy"
 categories: [Deep Learning]
 tags: [Doodle, GAN, Python, Deep-Learning]
+image: /static/assets/img/landing/doodle2.jpg
+image_alt: "A page of hand-drawn food doodles"
 icon: icon-html
 ---
 

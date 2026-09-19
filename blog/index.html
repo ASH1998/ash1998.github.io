@@ -28,6 +28,7 @@ desc: Notes and experiments in machine learning, language, and the tools behind 
   <a class="journal-entry" href="{{ post.url }}">
     <div class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time><span>{{ forloop.index | plus: post_offset }}</span></div>
     <div class="entry-copy"><p class="entry-category">{{ post.categories | join: ' / ' }}</p><h3>{{ post.title | replace: '-', ' ' | escape }}</h3>{% if post.desc %}<p>{{ post.desc | escape }}</p>{% endif %}</div>
+    {% if post.image %}<span class="entry-image" aria-hidden="true"><img src="{{ post.image | escape }}" alt="" width="420" height="264" loading="lazy"></span>{% endif %}
     <span class="entry-arrow" aria-hidden="true">↗</span>
   </a>
   {% endfor %}

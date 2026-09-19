@@ -4,6 +4,7 @@ layout: journal
 <article class="journal-post">
   <a class="back-link" href="/blog/">← All writing</a>
   <div class="post-heading"><p class="eyebrow">{{ page.categories | join: ' / ' }}</p><h1>{{ page.title | replace: '-', ' ' | escape }}</h1><p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time><span>·</span>Ashutosh Mishra<span>·</span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</p>{% if page.desc %}<p class="post-deck">{{ page.desc | escape }}</p>{% endif %}</div>
+  {% if page.image %}<figure class="post-cover"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: page.title | escape }}" width="1200" height="648" fetchpriority="high"></figure>{% endif %}
   <div class="article-body">{{ content }}</div>
   <div class="post-tags">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</div>
   <nav class="post-pagination" aria-label="More articles">{% if page.previous %}<a href="{{ page.previous.url }}"><span>PREVIOUS ENTRY</span>{{ page.previous.title | replace: '-', ' ' | escape }}</a>{% endif %}{% if page.next %}<a href="{{ page.next.url }}"><span>NEXT ENTRY</span>{{ page.next.title | replace: '-', ' ' | escape }}</a>{% endif %}</nav>

@@ -6,6 +6,8 @@ desc: "UQ"
 keywords: "Ashutosh,Python,ML, Tech"
 categories: [Deep Learning, Python, Machine Learning]
 tags: [Geo-loc, Python, Deep-Learning]
+image: /static/assets/img/landing/header_three.jpg
+image_alt: "A galaxy field suggesting uncertainty and many possible outcomes"
 icon: icon-html
 ---
 

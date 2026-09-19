@@ -6,6 +6,8 @@ desc: "Emotion Detection using bi-CNN"
 keywords: "Ashutosh,Python,CNN,Image-Processsing,blog,easy"
 categories: [Deep Learning]
 tags: [Emotion, CNN, Python, Deep-Learning]
+image: /static/assets/img/landing/face.jpg
+image_alt: "An illustration of face detection through a magnifying glass"
 icon: icon-html
 ---
 

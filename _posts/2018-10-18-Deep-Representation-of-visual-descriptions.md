@@ -6,6 +6,8 @@ desc: "Final Year Project"
 keywords: "Ashutosh,Python,text-to-image,AttnGAN,blog,easy"
 categories: [Deep Learning]
 tags: [AttnGAN,text-to-image,StackGAN, GAN, Python, Deep-Learning]
+image: /static/assets/img/landing/deep.jpg
+image_alt: "A stylized eye representing visual understanding"
 icon: icon-html
 ---
 

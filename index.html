@@ -26,20 +26,11 @@ layout: null
       <p class="eyebrow">01 / EXPERIENCE</p><h2>From an idea<br>to everyday impact.</h2>
       <p class="section-intro">Building intelligent systems across enterprise AI, personalisation, and language understanding.</p>
       <div class="timeline">
-        <article class="role">
-          <div class="role-meta"><span>JUL 2025 — PRESENT</span><span>01</span></div><h3>S&P Global</h3><p class="role-title">Senior Data Scientist</p>
-          <p>Building ASTRA, an enterprise agent platform processing 23B+ tokens a month, and leading WhoBot, a knowledge platform serving 30K+ employees.</p>
-          <details><summary>More about the work <span aria-hidden="true">+</span></summary><ul class="work-details">
-            <li>Built ASTRA on AWS AgentCore over proprietary enterprise data, serving 5K+ employees and 16K+ AI sessions.</li>
-            <li>Built an evaluation harness with 400+ golden traces across tool use and retrieval, reducing the escape rate from 23% to under 5%.</li>
-            <li>Own ASTRA’s guardrails: PII redaction, prompt-injection detection, and full trace audit logging. The platform cleared InfoSec review for restricted enterprise data.</li>
-            <li>Led WhoBot to answer ownership, risk, and product questions across siloed internal systems. Built its multi-agent knowledge graph across eight source systems, extracting 2M+ entity relationships.</li>
-            <li>Used an LLM-judge validation loop to raise knowledge-graph edge precision from 71% to 89%.</li>
-            <li>Selected as one of 15 firm-wide Vision Professors. Authored an agent-design and fine-tuning curriculum now used to onboard 150+ AI teams.</li>
-          </ul></details><span class="tagline">AI agents · Knowledge graphs · Evaluation & guardrails</span>
+        <article class="role role-current">
+          <div class="company-heading"><span class="company-logo"><img src="/static/portfolio/logos/sp-global.svg" alt="" width="137" height="30"></span><h3>S&amp;P Global</h3></div><p class="role-title">Senior Data Scientist</p>
         </article>
         <article class="role">
-          <div class="role-meta"><span>OCT 2023 — JUL 2025</span><span>02</span></div><h3>Wipro</h3><p class="role-title">AI Lead, GenAI Practice</p>
+          <div class="role-meta"><span>OCT 2023 — JUL 2025</span><span>02</span></div><div class="company-heading"><span class="company-logo"><img src="/static/portfolio/logos/wipro.svg" alt="" width="512" height="205"></span><h3>Wipro</h3></div><p class="role-title">Data Scientist → AI Lead, GenAI Practice</p>
           <p>Led 15 GenAI engineers delivering enterprise AI and agentic systems. Launched root-cause analysis solutions that reduced infrastructure mean time to recovery by 15%.</p>
           <details><summary>More about the work <span aria-hidden="true">+</span></summary><ul class="work-details">
             <li>Fine-tuned and deployed domain-specific small language models on secure, GPU-based on-premises infrastructure.</li>
@@ -48,7 +39,7 @@ layout: null
           </ul></details><span class="tagline">Generative AI · Fine-tuning · Model deployment</span>
         </article>
         <article class="role">
-          <div class="role-meta"><span>MAY 2021 — OCT 2023</span><span>03</span></div><h3>Let's Cooee</h3><p class="role-title">Founding Engineer and Data Scientist</p>
+          <div class="role-meta"><span>MAY 2021 — OCT 2023</span><span>03</span></div><div class="company-heading"><span class="company-logo"><img src="/static/portfolio/logos/cooee.png" alt="" width="912" height="351" loading="lazy"></span><h3>Let's Cooee</h3></div><p class="role-title">Founding Engineer and Data Scientist</p>
           <p>Built and scaled core AI and data products as an early founding engineer, including real-time purchase-intent systems processing 11M+ e-commerce sessions a day.</p>
           <details><summary>More about the work <span aria-hidden="true">+</span></summary><ul class="work-details">
             <li>Designed an event-driven architecture that improved data-processing efficiency by more than 60%.</li>
@@ -57,7 +48,7 @@ layout: null
           </ul></details><span class="tagline">Personalisation · Real-time systems · MLOps</span>
         </article>
         <article class="role">
-          <div class="role-meta"><span>JUN 2019 — MAY 2021</span><span>04</span></div><h3>Riverus</h3><p class="role-title">Associate Data Scientist</p>
+          <div class="role-meta"><span>JUN 2019 — MAY 2021</span><span>04</span></div><div class="company-heading"><span class="company-logo"><img src="/static/portfolio/logos/riverus.png" alt="" width="160" height="37" loading="lazy"></span><h3>Riverus</h3></div><p class="role-title">Associate Data Scientist</p>
           <p>Built machine learning systems for large-scale legal corpora, achieving 90% precision in extracting high-value analytics.</p>
           <details><summary>More about the work <span aria-hidden="true">+</span></summary><ul class="work-details">
             <li>Improved fuzzy text-matching performance by 25% for quoted-text comparisons across legal datasets.</li>
@@ -100,7 +91,7 @@ layout: null
     </section>
     <section class="chapter" id="writing" data-shape="4"><p class="eyebrow">05 / WRITING</p><h2>Notes from<br>the exploration.</h2><p class="section-intro">The latest posts from the blog, on machine learning, research, and practical tools.</p>
       {% for post in site.posts limit:4 %}
-      <a class="article-link" href="{{ post.url | escape }}"><div><span class="article-type">{{ post.categories | first | default: 'NOTES' | escape }} <span aria-hidden="true">·</span> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time></span><h3>{{ post.title | replace: '-', ' ' | escape }}</h3></div><span aria-hidden="true">↗</span></a>
+      <a class="article-link" href="{{ post.url | escape }}"><div class="article-copy"><span class="article-type">{{ post.categories | first | default: 'NOTES' | escape }} <span aria-hidden="true">·</span> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time></span><h3>{{ post.title | replace: '-', ' ' | escape }}</h3></div>{% if post.image %}<span class="article-thumb" aria-hidden="true"><img src="{{ post.image | escape }}" alt="" width="320" height="200" loading="lazy"></span>{% endif %}<span class="article-arrow" aria-hidden="true">↗</span></a>
       {% endfor %}
       <div class="hero-links"><a href="/blog/">Browse all writing <span>↗</span></a></div>
     </section>

@@ -6,6 +6,8 @@ desc: "Using encoder-decoder model with Attention network to create a Langaue tr
 keywords: "Pytorch,Attention-network"
 categories: [tech]
 tags: [Ashutosh, Encoder, Decoder, NLP, Pytorch]
+image: /static/assets/img/landing/word_map.png
+image_alt: "A world map visualizing language connections"
 icon: icon-html
 ---
 

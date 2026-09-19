@@ -6,6 +6,8 @@ desc: "Gcloud server setup"
 keywords: "Ashutosh,Python,ML, Tech"
 categories: [Deep Learning, Python, Machine Learning]
 tags: [GPU, Python, Deep-Learning]
+image: /static/portfolio/blog-covers/gpu-server.jpg
+image_alt: "Rows of compute hardware in a dark data center"
 icon: icon-html
 ---
 

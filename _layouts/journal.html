@@ -4,6 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ page.title | escape }} — Ashutosh Mishra</title>
   <meta name="description" content="{{ page.desc | default: 'Notes on machine learning, research, and the tools behind the work.' | escape }}">
+  {% if page.image %}<meta property="og:image" content="{{ site.url }}{{ page.image | escape }}"><meta property="og:image:alt" content="{{ page.image_alt | default: page.title | escape }}"><meta name="twitter:card" content="summary_large_image">{% endif %}
   <meta name="theme-color" content="#080b10">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23080b10'/%3E%3Cpath d='M9 29 20 9l11 20M14 23h12' fill='none' stroke='%23a4b2ff' stroke-width='2'/%3E%3C/svg%3E">

@@ -6,6 +6,8 @@ permalink: /blog/rune-goblin/
 desc: "My winning Hugging Face Build Small project: an AI dungeon crawler that turns hand-drawn runes into spells, with a fine-tuned vision model and a deterministic game engine."
 categories: [Hackathons, Machine Learning]
 tags: [Rune Goblin, Hugging Face, Build Small, OpenBMB, MiniCPM, Fine-tuning, Gradio, Modal, Codex]
+image: /static/portfolio/blog-covers/rune-goblin.png
+image_alt: "Rune Goblin RPG title artwork"
 ---
 
 Rune Goblin, my winning project from the Hugging Face Build Small hackathon, started with a question: what would spell casting feel like if you had to draw the spell yourself?

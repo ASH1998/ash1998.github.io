@@ -65,9 +65,19 @@
     const copy = element('div', 'entry-copy');
     copy.append(element('p', 'entry-category', post.categories.join(' / ')), element('h3', '', post.title));
     if (post.description) copy.append(element('p', '', post.description));
+    let thumbnail;
+    if (typeof post.image === 'string' && post.image.startsWith('/') && !post.image.startsWith('//')) {
+      thumbnail = element('span', 'entry-image');
+      thumbnail.setAttribute('aria-hidden', 'true');
+      const image = document.createElement('img');
+      image.src = post.image; image.alt = ''; image.width = 420; image.height = 264; image.loading = 'lazy';
+      thumbnail.append(image);
+    }
     const arrow = element('span', 'entry-arrow', '↗');
     arrow.setAttribute('aria-hidden', 'true');
-    link.append(date, copy, arrow);
+    link.append(date, copy);
+    if (thumbnail) link.append(thumbnail);
+    link.append(arrow);
     return link;
   }
   function updateURL(query, page) {

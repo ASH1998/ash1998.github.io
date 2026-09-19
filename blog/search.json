@@ -10,6 +10,8 @@ permalink: /blog/search.json
     "url": {{ post.url | jsonify }},
     "date": {{ post.date | date_to_xmlschema | jsonify }},
     "displayDate": {{ post.date | date: '%b %d, %Y' | jsonify }},
+    "image": {{ post.image | default: '' | jsonify }},
+    "imageAlt": {{ post.image_alt | default: post.title | jsonify }},
     "description": {{ post.desc | default: post.excerpt | strip_html | normalize_whitespace | truncate: 360 | jsonify }},
     "categories": {{ post.categories | jsonify }},
     "tags": {{ post.tags | jsonify }}

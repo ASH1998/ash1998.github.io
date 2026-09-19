@@ -6,6 +6,8 @@ desc: "CNN on Fashion Mnist using Pytorch"
 keywords: "Pytorch,Fashion"
 categories: [tech]
 tags: [Ashutosh, Life, resume, Pytorch, Mnist]
+image: /static/assets/img/landing/torch.png
+image_alt: "A glowing torch representing the PyTorch framework"
 icon: icon-html
 ---
 
