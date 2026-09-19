@@ -68,3 +68,12 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+
+# Build small, crawlable archive pages as the journal grows.
+plugins:
+  - jekyll-paginate
+paginate: 12
+paginate_path: "/blog/page:num/"
+
+exclude:
+  - tests
