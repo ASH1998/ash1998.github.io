@@ -38,4 +38,5 @@ Write the article below that front matter, commit, and push to `master`. GitHub 
 The archive generates static pages of 12 entries using `jekyll-paginate`; browsing works without JavaScript. Search loads `/blog/search.json` only after a query, matches titles, summaries (up to 360 characters), categories, and tags, and renders at most 12 results at a time. Every query term must match; title matches rank first and ties retain newest-first order. Search URLs can be bookmarked or shared. Full article bodies are not downloaded or searched. New posts need no manual index maintenance.
 
 This metadata index is suitable for thousands of text posts; its download and search work grow with the number of entries. Compress article media and monitor build time/site size as the archive grows. GitHub Pages currently caps the published site at 1 GB and builds at 10 minutes: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
-`nRun search regression checks with `node --test tests/blog-search.test.cjs` (including a 5,000-entry fixture).
+
+Run search regression checks with `node --test tests/blog-search.test.cjs` (including a 5,000-entry fixture).
