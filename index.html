@@ -22,7 +22,7 @@ layout: null
   </aside>
   <main id="main">
     <section class="hero chapter" id="overview" data-shape="0"><div class="hero-copy"><p class="eyebrow">ASHUTOSH MISHRA <span> / </span> AI ENGINEER</p><h1>Intelligence, built<br>for the real world.</h1><p class="intro">I build AI that moves from possibility to production. Seven years of turning data into GenAI and machine learning systems used by millions.</p><div class="hero-links"><a href="#experience">Explore my work <span>↓</span></a><a href="https://www.linkedin.com/in/ash1998" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span>↗</span></a></div><p class="current">Currently · Senior Data Scientist at S&P Global</p></div><div class="scroll-cue"><span>SCROLL TO EXPLORE</span><span class="hairline"></span>01 — 07</div></section>
-    <section class="chapter" id="experience" data-shape="1">
+    <section class="chapter" id="experience" data-shape="0">
       <p class="eyebrow">01 / EXPERIENCE</p><h2>From an idea<br>to everyday impact.</h2>
       <p class="section-intro">Building intelligent systems across enterprise AI, personalisation, and language understanding.</p>
       <div class="timeline">
@@ -57,7 +57,7 @@ layout: null
         </article>
       </div>
     </section>
-    <section class="chapter" id="practice" data-shape="2">
+    <section class="chapter" id="practice" data-shape="0">
       <p class="eyebrow">02 / PRACTICE</p><h2>Curiosity meets<br>engineering.</h2><p class="section-intro">My work connects machine learning research with the systems that make it useful.</p>
       <div class="skill-row"><span>Intelligence</span><p>Generative AI, LLMs, NLP, deep learning, reinforcement learning, graph networks</p></div>
       <div class="skill-row"><span>Engineering</span><p>Python, SQL / NoSQL, cloud infrastructure, Docker, CI/CD, scalable ML pipelines</p></div>
@@ -70,7 +70,7 @@ layout: null
         <div class="intern"><h4>Intel Indexer LLC <span>Feb — May 2018</span></h4><p>Project Intern · Economic prediction, dynamic time warping, and Bayesian methods.</p></div>
       </div>
     </section>
-    <section class="chapter" id="skills" data-shape="3" aria-labelledby="skills-heading">
+    <section class="chapter" id="skills" data-shape="1" aria-labelledby="skills-heading">
       <p class="eyebrow">03 / SKILLS</p><h2 id="skills-heading">Tools of the trade.</h2><p class="section-intro">From agent design and model serving to the data and infrastructure behind production AI.</p>
       <div class="skill-row"><span>Languages</span><p>Python, JavaScript, SQL, Rust</p></div>
       <div class="skill-row"><span>Generative AI</span><p>LLMs, AI agents, RAG, MCP, tool calling, LLM fine-tuning, Hugging Face, LangChain, Google ADK, FastMCP</p></div>
@@ -78,7 +78,7 @@ layout: null
       <div class="skill-row"><span>Backend & cloud</span><p>FastAPI, Node.js, AWS, Azure, Google Cloud, Docker, CI/CD, MLOps, serverless deployment, Nginx</p></div>
       <div class="skill-row"><span>Data</span><p>PostgreSQL, MongoDB, ClickHouse, Snowflake, ChromaDB, vector databases, knowledge graphs, NoSQL</p></div>
     </section>
-    <section class="chapter" id="achievements" data-shape="4" aria-labelledby="achievements-heading">
+    <section class="chapter" id="achievements" data-shape="2" aria-labelledby="achievements-heading">
       <p class="eyebrow">04 / ACHIEVEMENTS</p><h2 id="achievements-heading">Milestones along the way.</h2><p class="section-intro">Recognition, open-source contributions, and work shared with the AI community.</p>
       <div class="achievements"><ul>
         <li><span class="achievement-label">2026 · HACKATHON WINNER</span><h3>Hugging Face Build Small</h3><p>Rune Goblin: an AI dungeon crawler where hand-drawn runes become spells. <a href="/blog/rune-goblin/">Read the build story ↗</a></p></li>
@@ -89,7 +89,7 @@ layout: null
         <li><span class="achievement-label">OPEN SOURCE · CONTRIBUTOR</span><h3>AI models & datasets</h3><p>Synthetic datasets and fine-tuned models published on Hugging Face.</p></li>
       </ul></div>
     </section>
-    <section class="chapter" id="writing" data-shape="4"><p class="eyebrow">05 / WRITING</p><h2>Notes from<br>the exploration.</h2><p class="section-intro">The latest posts from the blog, on machine learning, research, and practical tools.</p>
+    <section class="chapter" id="writing" data-shape="3"><p class="eyebrow">05 / WRITING</p><h2>Notes from<br>the exploration.</h2><p class="section-intro">The latest posts from the blog, on machine learning, research, and practical tools.</p>
       {% for post in site.posts limit:4 %}
       <a class="article-link" href="{{ post.url | escape }}"><div class="article-copy"><span class="article-type">{{ post.categories | first | default: 'NOTES' | escape }} <span aria-hidden="true">·</span> <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time></span><h3>{{ post.title | replace: '-', ' ' | escape }}</h3></div>{% if post.image %}<span class="article-thumb" aria-hidden="true"><img src="{{ post.image | escape }}" alt="" width="320" height="200" loading="lazy"></span>{% endif %}<span class="article-arrow" aria-hidden="true">↗</span></a>
       {% endfor %}

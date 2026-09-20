@@ -186,7 +186,9 @@
   new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;start();},{rootMargin:'80px'}).observe(canvas);
   new ResizeObserver(resize).observe(canvas);describe();motionLabel();resize();start();
   // Stable scroll chapters use only forms 1–5. Extra forms require activation.
-  const nav=[...document.querySelectorAll('nav a')],sectionForms={overview:0,experience:1,practice:2,skills:3,achievements:4,writing:4,contact:4};
+  // Keep the sphere in view through the complete work history, then advance
+  // through forms 2–5 as the remaining chapters enter the reading window.
+  const nav=[...document.querySelectorAll('nav a')],sectionForms={overview:0,experience:0,practice:0,skills:1,achievements:2,writing:3,contact:4};
   let sectionTimer=0,activeSection=null;
   const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;nav.forEach(a=>{const active=a.hash===`#${entry.target.id}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});clearTimeout(sectionTimer);sectionTimer=setTimeout(()=>{const changed=activeSection!==entry.target.id;activeSection=entry.target.id;if(changed&&!mobile.matches&&!paused&&!down)setShape(sectionForms[entry.target.id]??0);},450);}},{rootMargin:'-32% 0px -43% 0px',threshold:0});
   document.querySelectorAll('.chapter').forEach(section=>observer.observe(section));

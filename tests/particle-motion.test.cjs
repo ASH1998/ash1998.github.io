@@ -53,7 +53,7 @@ function scene({ mobile = true } = {}) {
 
 test('scrolling has stable assignments restricted to forms 1–5', () => {
   const s = scene({ mobile: false });
-  const sections = [['overview','Sphere'],['experience','Cube'],['practice','Octahedron'],['skills','Double helix'],['achievements','Black hole'],['writing','Black hole'],['contact','Black hole']];
+  const sections = [['overview','Sphere'],['experience','Sphere'],['practice','Sphere'],['skills','Cube'],['achievements','Octahedron'],['writing','Double helix'],['contact','Black hole']];
   for (const [section, shape] of [...sections, ...sections.toReversed()]) {
     s.visit(section); assert.equal(s.node('#particles').dataset.shape, shape);
     s.visit(section); assert.equal(s.node('#particles').dataset.shape, shape);
@@ -61,7 +61,7 @@ test('scrolling has stable assignments restricted to forms 1–5', () => {
   s.visit('skills'); s.next();
   assert.equal(s.node('#particles').dataset.shape, 'Möbius');
   s.visit('skills'); assert.equal(s.node('#particles').dataset.shape, 'Möbius', 'same section preserves the clicked form');
-  s.visit('achievements'); assert.equal(s.node('#particles').dataset.shape, 'Black hole');
+  s.visit('achievements'); assert.equal(s.node('#particles').dataset.shape, 'Octahedron');
 });
 
 test('idle time never changes either a scroll form or an extra form', () => {
@@ -106,7 +106,7 @@ test('drag inertia follows elapsed time across 30, 60 and 120 Hz displays', () =
 });
 
 test('all ten sculpture click effects work without selecting another shape', () => {
-  const s = scene({ mobile: false }), sections = ['overview','experience','practice','skills','achievements'];
+  const s = scene({ mobile: false }), sections = ['overview','skills','achievements','writing','contact'];
   const effects = ['scatter','tumble','ripple','unzip','singularity','twist','flex','vortex','knot-pulse','gimbal'];
   for (let i = 0; i < 20; i++) {
     if (i % 10 < 5) s.visit(sections[i % 10]); else s.next();
