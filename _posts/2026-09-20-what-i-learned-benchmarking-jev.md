@@ -6,7 +6,7 @@ permalink: /blog/jev-vs-classical-ml/
 desc: "I tested Jev 1.13.0 against eleven classical classification pipelines on eight datasets. The interesting result was not a universal winner, but a clear map of where each approach worked."
 categories: [Machine Learning, Benchmarks]
 tags: [Jev, Classical ML, Classification, Benchmarking, NLP, Tabular Data, Balanced Accuracy]
-image: /static/portfolio/blog-covers/jev-vs-ml.png
+image: /static/portfolio/blog-covers/jev-vs-ml-dark.png
 image_alt: "Balanced accuracy results from the Jev and classical machine learning benchmark"
 ---
 
