@@ -35,9 +35,9 @@ disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your c
   name: ash1998
 
 # analytics
-## google analytics
-ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
-  id: UA-127718000-1
+## Google Analytics 4 measurement ID
+ga:
+  id: G-3625LWKL39
 
 ## google optimize
 go:
