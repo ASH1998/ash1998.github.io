@@ -4,14 +4,18 @@ title : Sitemap
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for post in site.posts %}
-    <url>
-        <loc>{{site.url}}{{ post.url }}</loc>
-    </url>
-{% endfor %}
-{% for page in site.pages %}
-    <url>
-        <loc>{{site.url}}{{ page.url }}</loc>
-    </url>
-{% endfor %}
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+    <lastmod>{{ site.posts.first.date | date_to_xmlschema }}</lastmod>
+  </url>
+{% for post in site.posts %}{% unless post.noindex %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
+  </url>
+{% endunless %}{% endfor %}
 </urlset>
