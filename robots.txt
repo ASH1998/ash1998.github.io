@@ -1,5 +1,10 @@
 ---
+layout: null
 title: robots
 ---
+# All crawlers are welcome, including search engines and AI assistants
+# (Googlebot, Bingbot, OAI-SearchBot, GPTBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot).
 User-agent: *
-Sitemap: <{{site.url}}/sitemap.xml>
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

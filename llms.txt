@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# Ashutosh Mishra
+
+> Senior Data Scientist and AI lead at S&P Global, building generative AI and machine learning systems used in production. Writes about LLMs, adapters and hypernetworks, on-device AI, scientific ML, and model benchmarking.
+
+This site is the portfolio and blog of Ashutosh Mishra. The home page covers his experience, technical practice and achievements; the blog holds project write-ups with results, figures and stated limitations.
+
+## Writing
+{% for post in site.posts %}{% unless post.noindex %}
+- [{{ post.title | replace: '‑', '-' }}]({{ site.url }}{{ post.url }}) ({{ post.date | date: '%Y-%m-%d' }}){% if post.desc %}: {{ post.desc }}{% endif %}{% endunless %}{% endfor %}
+
+## Pages
+
+- [Home: experience, practice and achievements]({{ site.url }}/)
+- [Blog index]({{ site.url }}/blog/)
+- [RSS feed]({{ site.url }}/feed.xml)
+
+## Profiles
+
+- [GitHub](https://github.com/ASH1998)
+- [LinkedIn](https://www.linkedin.com/in/ash1998)
+- [Hugging Face](https://huggingface.co/ASHu2)
+- [Stack Overflow](https://stackoverflow.com/users/7454706/ashu2)
