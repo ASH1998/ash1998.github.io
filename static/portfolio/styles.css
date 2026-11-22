@@ -105,3 +105,15 @@
   .role-impact{gap:12px}
   .role-impact dd{font-size:19px}
 }
+
+/* Wide screens (1800px+ CSS width, e.g. 24-27" monitors at 100%): widen the content column and
+   bring the particle stage next to it. Laptops and Macs (about 1280-1728px) are unaffected. */
+@media(min-width:1800px){
+  :root{--wide-left:max(17.5vw,calc(50vw - 860px))}
+  .chapter{width:760px;margin-left:var(--wide-left)}
+  .hero-copy{max-width:720px}
+  .intro{max-width:600px}
+  .section-intro{max-width:640px}
+  .timeline,.skill-row,.education,.early-work,.article-link,.achievements{max-width:760px}
+  .particle-stage{left:calc(var(--wide-left) + 860px);width:min(900px,calc(100vw - var(--wide-left) - 860px - 5vw))}
+}
