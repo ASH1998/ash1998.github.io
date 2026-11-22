@@ -51,32 +51,32 @@ function scene({ mobile = true } = {}) {
   };
 }
 
-test('scrolling has stable assignments restricted to forms 1–5', () => {
+test('scrolling keeps the sphere on every section and never overrides a chosen form', () => {
   const s = scene({ mobile: false });
-  const sections = [['overview','Sphere'],['experience','Sphere'],['practice','Sphere'],['skills','Cube'],['achievements','Octahedron'],['writing','Double helix'],['contact','Black hole']];
-  for (const [section, shape] of [...sections, ...sections.toReversed()]) {
-    s.visit(section); assert.equal(s.node('#particles').dataset.shape, shape);
-    s.visit(section); assert.equal(s.node('#particles').dataset.shape, shape);
+  const sections = ['overview','experience','practice','skills','achievements','writing','contact'];
+  for (const section of [...sections, ...sections.toReversed()]) {
+    s.visit(section); assert.equal(s.node('#particles').dataset.shape, 'Sphere');
   }
   s.visit('skills'); s.next();
-  assert.equal(s.node('#particles').dataset.shape, 'Möbius');
-  s.visit('skills'); assert.equal(s.node('#particles').dataset.shape, 'Möbius', 'same section preserves the clicked form');
-  s.visit('achievements'); assert.equal(s.node('#particles').dataset.shape, 'Octahedron');
+  assert.equal(s.node('#particles').dataset.shape, 'Saturn');
+  for (const section of sections) {
+    s.visit(section); assert.equal(s.node('#particles').dataset.shape, 'Saturn', 'scrolling keeps the form the visitor chose');
+  }
 });
 
 test('idle time never changes either a scroll form or an extra form', () => {
   const s = scene();
   s.advance(25, 30); assert.equal(s.node('#particles').dataset.shape, 'Sphere');
-  s.next(); s.click(); s.advance(25, 30); assert.equal(s.node('#particles').dataset.shape, 'Möbius');
+  s.next(); s.click(); s.advance(25, 30); assert.equal(s.node('#particles').dataset.shape, 'Saturn');
   assert.equal(s.node('#particles').dataset.effect, 'idle');
 });
 
-test('number label and keyboard activation cycle only through forms 6–10', () => {
-  const s = scene(), expected = ['Möbius','Catenoid','Orbit','Trefoil','Gyroscope','Möbius'];
+test('number label and keyboard activation cycle through every form in order and wrap', () => {
+  const s = scene(), expected = ['Saturn','Atom','Wormhole','Lorenz','Network','Tesseract','Gyroid','Sphere','Saturn'];
   for (const shape of expected) { s.next(); assert.equal(s.node('#particles').dataset.shape, shape); }
   s.node('#sculpture').handlers.keydown({key:'ArrowLeft',preventDefault(){}});
-  assert.equal(s.node('#particles').dataset.shape, 'Gyroscope');
-  s.next(); assert.equal(s.node('#particles').dataset.shape, 'Möbius');
+  assert.equal(s.node('#particles').dataset.shape, 'Sphere');
+  s.next(); assert.equal(s.node('#particles').dataset.shape, 'Saturn');
 });
 
 test('mobile section navigation leaves the hero sculpture unchanged', () => {
@@ -105,18 +105,18 @@ test('drag inertia follows elapsed time across 30, 60 and 120 Hz displays', () =
   }
 });
 
-test('all ten sculpture click effects work without selecting another shape', () => {
-  const s = scene({ mobile: false }), sections = ['overview','skills','achievements','writing','contact'];
-  const effects = ['scatter','tumble','ripple','unzip','singularity','twist','flex','vortex','knot-pulse','gimbal'];
-  for (let i = 0; i < 20; i++) {
-    if (i % 10 < 5) s.visit(sections[i % 10]); else s.next();
+test('every form\'s click effect works without selecting another shape', () => {
+  const s = scene({ mobile: false });
+  const effects = ['scatter','accrete','cloud','warp','butterfly','pass','hyper','split'];
+  for (let i = 0; i < 16; i++) {
     s.advance(i % 2 ? 3 : .3);
     const shape = s.node('#particles').dataset.shape;
     s.click();
     assert.equal(s.node('#particles').dataset.shape, shape);
-    assert.equal(s.node('#particles').dataset.effect, effects[i % 10]);
+    assert.equal(s.node('#particles').dataset.effect, effects[i % 8]);
     s.advance(.5);
     assert.ok(s.snapshot().every(Number.isFinite));
+    s.next();
   }
 });
 
@@ -125,7 +125,7 @@ test('pause stops frame scheduling, permits shape selection, and resumes cleanly
   const paused = s.snapshot(); s.advance(1);
   assert.deepEqual(s.snapshot(), paused); assert.equal(s.frames.size, 0);
   s.click(); assert.deepEqual(s.snapshot(), paused, 'sculpture effects respect pause');
-  s.next(); assert.equal(s.node('#particles').dataset.shape, 'Möbius');
+  s.next(); assert.equal(s.node('#particles').dataset.shape, 'Saturn');
   assert.ok(s.snapshot().every(Number.isFinite));
   s.pause(); s.advance(.2); assert.equal(s.frames.size, 1);
   assert.notDeepEqual(s.snapshot(), paused);
@@ -154,6 +154,6 @@ test('a sculpture click visibly changes the current form while a label click sel
   for (let i = 0; i < after.length; i += 5) movement = Math.max(movement, Math.hypot(after[i] - before[i], after[i + 1] - before[i + 1]));
   assert.ok(movement > 5, 'scatter visibly displaces particles');
   interactive.next();
-  assert.equal(interactive.node('#particles').dataset.shape, 'Möbius');
+  assert.equal(interactive.node('#particles').dataset.shape, 'Saturn');
   assert.equal(interactive.node('#particles').dataset.effect, 'idle', 'changing forms clears the old effect');
 });
