@@ -1,6 +1,6 @@
 # Ashutosh Mishra — Portfolio
 
-Live at [ash1998.github.io](https://ash1998.github.io/).
+Live at [ashutoshmishra.dev](https://ashutoshmishra.dev/).
 
 The homepage is a responsive portfolio with a grainy midnight background and ten interactive particle forms. Desktop scrolling uses fixed forms 1–5: Overview, Experience, Practice, Skills, and Achievements onward. Shapes never cycle automatically. Click the number/name label to explore extra forms 6–10; left/right arrow keys also browse those extras. Clicking the sculpture triggers its own effect (scatter, ripple, twist, and more) without selecting another shape. Hover illuminates surfaces and dragging rotates the current form. Motion can be paused and respects reduced-motion preferences.
 
@@ -16,7 +16,7 @@ The homepage is a responsive portfolio with a grainy midnight background and ten
 
 The homepage uses HTML, CSS, JavaScript, and a Liquid loop that shows the four newest published posts from the same `site.posts` collection as the blog archive. GitHub Pages renders this automatically when publishing `master` at its root using the existing Jekyll setup; a full local preview needs Jekyll to render the recent-post list. No npm installation is needed. The blog archive automatically lists the original posts with matching dark article layouts. Post URLs, Markdown content, comments, and sharing remain available.
 
-[Blog](https://ash1998.github.io/blog/) · [GitHub](https://github.com/ASH1998)
+[Blog](https://ashutoshmishra.dev/blog/) · [GitHub](https://github.com/ASH1998)
 
 ## Publishing a blog post
 
