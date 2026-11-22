@@ -1,13 +1,62 @@
 ---
 layout: journal
 ---
+{% assign read_next = site.posts | where_exp: "p", "p.url != page.url" %}
+{% capture read_next_cards %}{% for p in read_next limit:3 %}<a class="read-next-card" href="{{ p.url }}" data-read-next="{{ forloop.index0 }}"{% unless forloop.first %} hidden{% endunless %}>{% if p.image %}<img src="{{ p.image | escape }}" alt="" loading="lazy" width="320" height="173">{% endif %}<div><p class="read-next-meta">{{ p.date | date: '%b %-d, %Y' }}{% if p.categories.size > 0 %} · {{ p.categories | join: ' / ' }}{% endif %}</p><h3>{{ p.title | replace: '-', ' ' | escape }}</h3>{% if p.desc %}<p class="read-next-desc">{{ p.desc | escape }}</p>{% endif %}</div></a>{% endfor %}{% endcapture %}
+<div class="post-shell">
+<aside class="post-toc" aria-label="On this page" hidden><p class="post-toc-title">On this page</p><nav class="post-toc-list"></nav></aside>
 <article class="journal-post">
   <a class="back-link" href="/blog/">← All writing</a>
   <div class="post-heading"><p class="eyebrow">{{ page.categories | join: ' / ' }}</p><h1>{{ page.title | replace: '-', ' ' | escape }}</h1><p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time><span>·</span>Ashutosh Mishra<span>·</span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</p>{% if page.desc %}<p class="post-deck">{{ page.desc | escape }}</p>{% endif %}</div>
   {% if page.image %}<figure class="post-cover"><img src="{{ page.image | escape }}" alt="{{ page.image_alt | default: page.title | escape }}" width="1200" height="648" fetchpriority="high"></figure>{% endif %}
   <div class="article-body">{{ content }}</div>
   <div class="post-tags">{% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+  {% if read_next.size > 0 %}<section class="read-next read-next-bottom" aria-label="Read next"><p class="read-next-label">Read next</p>{{ read_next_cards }}</section>{% endif %}
   <nav class="post-pagination" aria-label="More articles">{% if page.previous %}<a href="{{ page.previous.url }}"><span>PREVIOUS ENTRY</span>{{ page.previous.title | replace: '-', ' ' | escape }}</a>{% endif %}{% if page.next %}<a href="{{ page.next.url }}"><span>NEXT ENTRY</span>{{ page.next.title | replace: '-', ' ' | escape }}</a>{% endif %}</nav>
   <div class="post-sharing">{% include share.html %}</div>
   <div class="post-comments">{% include comments.html %}</div>
 </article>
+{% if read_next.size > 0 %}<aside class="read-next read-next-side" aria-label="Read next"><p class="read-next-label">Read next</p>{{ read_next_cards }}</aside>{% endif %}
+</div>
+<script>
+(() => {
+  // Read next: one of the 3 most recent other posts, picked at random (the first one without JS).
+  // The same pick is shown in the side column (wide screens) and at the end of the article.
+  const cards = [...document.querySelectorAll('[data-read-next]')];
+  const n = new Set(cards.map(c => c.dataset.readNext)).size;
+  if (n > 1) {
+    const pick = String(Math.floor(Math.random() * n));
+    cards.forEach(c => { c.hidden = c.dataset.readNext !== pick; });
+  }
+  // Sections list from the article's h2 headings, with the current one highlighted.
+  const toc = document.querySelector('.post-toc'), list = toc && toc.querySelector('.post-toc-list');
+  const heads = [...document.querySelectorAll('.article-body h2[id]')];
+  if (!list || heads.length < 2) return;
+  const links = heads.map(h => {
+    const a = document.createElement('a');
+    a.href = '#' + h.id; a.textContent = h.textContent; list.appendChild(a); return a;
+  });
+  toc.hidden = false;
+  // Keep the list clear of the fixed site navigation: if they share horizontal space,
+  // stick the list below the navigation's bottom edge instead of at the default offset.
+  const nav = document.querySelector('header');
+  const fit = () => {
+    toc.style.top = ''; toc.style.maxHeight = '';
+    if (!nav || getComputedStyle(toc).position !== 'sticky') return;
+    const n = nav.getBoundingClientRect(), t = toc.getBoundingClientRect();
+    const defTop = parseFloat(getComputedStyle(toc).top) || 0;
+    if (t.left < n.right + 24 && n.bottom + 32 > defTop) {
+      const top = Math.ceil(n.bottom + 32);
+      toc.style.top = top + 'px';
+      toc.style.maxHeight = (innerHeight - top - 24) + 'px';
+    }
+  };
+  addEventListener('resize', fit); fit();
+  const update = () => {
+    let cur = 0;
+    heads.forEach((h, i) => { if (h.getBoundingClientRect().top < 160) cur = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === cur));
+  };
+  addEventListener('scroll', update, { passive: true }); update();
+})();
+</script>
